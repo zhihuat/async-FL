@@ -1,0 +1,91 @@
+{
+    "wandb": {
+      "enabled": false,
+      "project": "FedAsync",
+      "name": "1"
+    },
+    "global": {
+      "dataset_pre_load": true,
+      "use_file_system": false,
+      "multi_gpu": true,
+      "experiment": "FedAsync/1",
+      "stale": [0,1,2,3,4,5,6,7,8,9],
+      "dataset": {
+        "path": "dataset.MNIST.MNIST",
+        "params": {}
+      },
+      "iid": false,
+      "client_num": 10,     
+      "clean_client_num": 9,
+      "posion_client_num": 1
+    },
+    "server": {
+      "path": "server.NormalServer.NormalServer",
+      "epochs": 300,
+      "model": {
+        "path": "model.LeNet5.LeNet5",
+        "params": {}
+      },
+      "scheduler": {
+        "path": "scheduler.AsyncScheduler.AsyncSchedulerWithOneUpdate",
+        "schedule_interval": 1,
+        "schedule_delay": 10,
+        "schedule": {
+          "path": "schedule.RandomSchedule.RandomSchedule",
+          "params": {
+            "c_ratio": 1
+          }
+        }
+      },
+      "updater": {
+        "path": "updater.AsyncUpdater.AsyncUpdater",
+        "num_generator": 1,
+        "loss": "torch.nn.functional.cross_entropy",
+        "update": {
+          "path": "update.FedAsync.FedAsync",
+          "params": {
+            "a": 10,
+            "b": 8,
+            "alpha": 0.9,
+            "r" : 1
+          }
+        }
+      }
+    },
+    "queue_manager": {
+      "path": "queuemanager.SingleQueueManager.SingleQueueManager",
+      "receiver": {
+        "path": "receiver.NormalReceiver.NormalReceiver",
+        "params": {
+        }
+      },
+      "checker": {
+        "path": "checker.AllChecker.AllChecker",
+        "params": {
+        }
+      }
+    },
+    "client_manager": {
+      "path": "clientmanager.NormalClientManager.NormalClientManager"
+    },
+    "client": {
+      "path": "client.NormalClient.NormalClient",
+      "epochs": 5,
+      "batch_size": 32,
+      "test_size": 0.1,
+      "test_batch_size": 16,
+      "model": {
+        "path": "model.LeNet5.LeNet5",
+        "params": {}
+      },
+      "loss": "torch.nn.functional.cross_entropy",
+      "mu": 0,
+      "optimizer": {
+        "path": "torch.optim.SGD",
+        "params": {
+          "lr": 0.01,
+          "weight_decay": 0
+        }
+      }
+    }
+  }
