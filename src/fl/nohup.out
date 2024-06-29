@@ -1,0 +1,3654 @@
+generating iid data...
+data generation process completed
+Running Mode: Default(Thread)
+Training Mode: Multi-GPU-Mode 
+GPU devices num: 4
+Training Mode: Multi-GPU-Mode 
+GPU devices num: 4
+Starting clients
+(0, 6006, {0: 593, 1: 675, 2: 596, 3: 614, 4: 585, 5: 543, 6: 592, 7: 627, 8: 586, 9: 595})
+(1, 6003, {0: 593, 1: 675, 2: 596, 3: 613, 4: 585, 5: 542, 6: 592, 7: 627, 8: 585, 9: 595})
+(2, 6001, {0: 593, 1: 674, 2: 596, 3: 613, 4: 584, 5: 542, 6: 592, 7: 627, 8: 585, 9: 595})
+(3, 6000, {0: 592, 1: 674, 2: 596, 3: 613, 4: 584, 5: 542, 6: 592, 7: 627, 8: 585, 9: 595})
+(4, 6000, {0: 592, 1: 674, 2: 596, 3: 613, 4: 584, 5: 542, 6: 592, 7: 627, 8: 585, 9: 595})
+(5, 5999, {0: 592, 1: 674, 2: 596, 3: 613, 4: 584, 5: 542, 6: 592, 7: 626, 8: 585, 9: 595})
+(6, 5999, {0: 592, 1: 674, 2: 596, 3: 613, 4: 584, 5: 542, 6: 592, 7: 626, 8: 585, 9: 595})
+(7, 5999, {0: 592, 1: 674, 2: 596, 3: 613, 4: 584, 5: 542, 6: 592, 7: 626, 8: 585, 9: 595})
+(8, 5997, {0: 592, 1: 674, 2: 595, 3: 613, 4: 584, 5: 542, 6: 591, 7: 626, 8: 585, 9: 595})
+(9, 5996, {0: 592, 1: 674, 2: 595, 3: 613, 4: 584, 5: 542, 6: 591, 7: 626, 8: 585, 9: 594})
+Start server:
+| current_time | 0 = 1 1 != -1
+| queue.size | 0 <=  10
+Current clients: 10 , select: 10
+| current_epoch 1 |. Begin client select
+
+SchedulerThread select( 10 clients):
+8 | 5 | 9 | 7 | 2 | 4 | 6 | 1 | 3 | 0 | 
+-----------------------------------------------------------------Schedule complete
+Client 6 trained
+Client 2 trained
+Client 1 trained
+Client 4 trained
+Client 3 trained
+Client 9 trained
+Client 5 trained
+Client 7 trained
+Client 8 trained
+Client 0 trained
+Client 2 uploaded
+Updater received data from client 2 | staleness = 1 - 1 | queue size =  0
+Epoch(t): 0 accuracy: 79.3 loss 0.7477391314506531
+Client 1 uploaded
+Epoch(t): 0 poison accuracy: 12.58 poison loss 6.574223704338074
+| current_time | 0 = 1 2 != 1
+| queue.size | 1 <=  10
+| current_epoch 2 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 1 - 2 | queue size =  0
+Client 0 uploaded
+Epoch(t): 1 accuracy: 80.92 loss 0.6356640657782555
+Epoch(t): 1 poison accuracy: 11.63 poison loss 9.392951726913452
+| current_time | 0 = 1 3 != 2
+| queue.size | 1 <=  10
+| current_epoch 3 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 1 - 3 | queue size =  0
+Epoch(t): 2 accuracy: 11.35 loss 2.6901595997810364
+Client 4 uploaded
+Client 3 uploaded
+Client 5 uploaded
+Client 6 uploaded
+Epoch(t): 2 poison accuracy: 100.0 poison loss 0.4794822782278061
+| current_time | 0 = 1 4 != 3
+| queue.size | 4 <=  10
+| current_epoch 4 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 1 - 4 | queue size =  3
+Epoch(t): 3 accuracy: 77.93 loss 0.7214303529262542
+Client 7 uploaded
+Client 9 uploaded
+Epoch(t): 3 poison accuracy: 15.54 poison loss 6.057268304824829
+| current_time | 0 = 1 5 != 4
+| queue.size | 5 <=  10
+| current_epoch 5 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 1 - 5 | queue size =  4
+Client 8 uploaded
+Epoch(t): 4 accuracy: 82.88 loss 0.5826623356342315
+Client 2 trained
+Client 1 trained
+Epoch(t): 4 poison accuracy: 12.01 poison loss 9.471001300811768
+| current_time | 0 = 1 6 != 5
+| queue.size | 5 <=  10
+| current_epoch 6 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 1 - 6 | queue size =  4
+Epoch(t): 5 accuracy: 81.9 loss 0.6239373347163201
+Client 2 uploaded
+Client 1 uploaded
+Epoch(t): 5 poison accuracy: 12.29 poison loss 8.443717155456543
+| current_time | 0 = 1 7 != 6
+| queue.size | 6 <=  10
+| current_epoch 7 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 1 - 7 | queue size =  5
+Epoch(t): 6 accuracy: 79.58 loss 0.6633879593014718
+Client 4 trained
+Client 0 trained
+Epoch(t): 6 poison accuracy: 15.18 poison loss 7.557088360786438
+| current_time | 0 = 1 8 != 7
+| queue.size | 5 <=  10
+| current_epoch 8 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 1 - 8 | queue size =  4
+Epoch(t): 7 accuracy: 81.04 loss 0.6322499379515648
+Client 3 trained
+Client 0 uploaded
+Epoch(t): 7 poison accuracy: 12.31 poison loss 8.871194252967834
+| current_time | 0 = 1 9 != 8
+| queue.size | 5 <=  10
+| current_epoch 9 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 1 - 9 | queue size =  4
+Epoch(t): 8 accuracy: 80.79 loss 0.6000068345665932
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 8 poison accuracy: 11.33 poison loss 10.645011005401612
+| current_time | 0 = 1 10 != 9
+| queue.size | 5 <=  10
+| current_epoch 10 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 1 - 10 | queue size =  4
+Epoch(t): 9 accuracy: 81.39 loss 0.592213220000267
+Client 3 uploaded
+Client 6 trained
+Epoch(t): 9 poison accuracy: 11.3 poison loss 10.54453579902649
+| current_time | 0 = 1 11 != 10
+| queue.size | 5 <=  10
+| current_epoch 11 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 2 - 11 | queue size =  4
+Epoch(t): 10 accuracy: 82.76 loss 0.556207070350647
+Client 5 uploaded
+Client 7 trained
+Epoch(t): 10 poison accuracy: 11.53 poison loss 10.422897882461548
+| current_time | 0 = 1 12 != 11
+| queue.size | 5 <=  10
+| current_epoch 12 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 3 - 12 | queue size =  4
+Epoch(t): 11 accuracy: 83.47 loss 0.5292896854877472
+Client 9 trained
+Epoch(t): 11 poison accuracy: 11.58 poison loss 10.533797121047973
+| current_time | 0 = 1 13 != 12
+| queue.size | 4 <=  10
+| current_epoch 13 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 4 - 13 | queue size =  3
+Epoch(t): 12 accuracy: 83.95 loss 0.5252094623446465
+Client 6 uploaded
+Client 7 uploaded
+Epoch(t): 12 poison accuracy: 12.41 poison loss 8.725388956069946
+| current_time | 0 = 1 14 != 13
+| queue.size | 5 <=  10
+| current_epoch 14 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 5 - 14 | queue size =  4
+Client 8 trained
+Epoch(t): 13 accuracy: 84.98 loss 0.49806445717811587
+Client 2 trained
+Epoch(t): 13 poison accuracy: 12.33 poison loss 8.905033950805665
+| current_time | 0 = 1 15 != 14
+| queue.size | 4 <=  10
+| current_epoch 15 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 6 - 15 | queue size =  3
+Epoch(t): 14 accuracy: 85.79 loss 0.472490032017231
+Client 9 uploaded
+Client 1 trained
+Client 2 uploaded
+Epoch(t): 14 poison accuracy: 12.39 poison loss 8.987848649024963
+| current_time | 0 = 1 16 != 15
+| queue.size | 5 <=  10
+| current_epoch 16 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 7 - 16 | queue size =  4
+Epoch(t): 15 accuracy: 86.8 loss 0.4476365613937378
+Client 8 uploaded
+Client 1 uploaded
+Epoch(t): 15 poison accuracy: 12.19 poison loss 9.20930540561676
+| current_time | 0 = 1 17 != 16
+| queue.size | 6 <=  10
+| current_epoch 17 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 8 - 17 | queue size =  5
+Epoch(t): 16 accuracy: 87.55 loss 0.427817790210247
+Client 4 trained
+Client 0 trained
+Epoch(t): 16 poison accuracy: 12.16 poison loss 9.30162657737732
+| current_time | 0 = 1 18 != 17
+| queue.size | 5 <=  10
+| current_epoch 18 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 9 - 18 | queue size =  4
+Epoch(t): 17 accuracy: 87.96 loss 0.4126600989699364
+Client 3 trained
+Client 0 uploaded
+Epoch(t): 17 poison accuracy: 12.09 poison loss 9.588745107650757
+| current_time | 0 = 1 19 != 18
+| queue.size | 5 <=  10
+| current_epoch 19 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 10 - 19 | queue size =  4
+Epoch(t): 18 accuracy: 88.29 loss 0.40028616979718207
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 18 poison accuracy: 11.96 poison loss 9.873726415634156
+| current_time | 0 = 1 20 != 19
+| queue.size | 5 <=  10
+| current_epoch 20 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 12 - 20 | queue size =  4
+Epoch(t): 19 accuracy: 91.6 loss 0.2764276723563671
+Client 3 uploaded
+Client 6 trained
+Epoch(t): 19 poison accuracy: 11.48 poison loss 11.722324838638306
+| current_time | 0 = 1 21 != 20
+| queue.size | 5 <=  10
+| current_epoch 21 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 11 - 21 | queue size =  4
+Epoch(t): 20 accuracy: 91.62 loss 0.2751924988627434
+Client 5 uploaded
+Client 7 trained
+Epoch(t): 20 poison accuracy: 11.49 poison loss 11.747610712051392
+| current_time | 0 = 1 22 != 21
+| queue.size | 5 <=  10
+| current_epoch 22 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 13 - 22 | queue size =  4
+Epoch(t): 21 accuracy: 91.85 loss 0.2714497910439968
+Epoch(t): 21 poison accuracy: 11.5 poison loss 11.779142608642578
+| current_time | 0 = 1 23 != 22
+| queue.size | 4 <=  10
+| current_epoch 23 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 14 - 23 | queue size =  3
+Client 6 uploaded
+Client 9 trained
+Epoch(t): 22 accuracy: 91.69 loss 0.27688556849956514
+Client 2 trained
+Client 7 uploaded
+Epoch(t): 22 poison accuracy: 11.75 poison loss 10.127388887405395
+| current_time | 0 = 1 24 != 23
+| queue.size | 5 <=  10
+| current_epoch 24 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 15 - 24 | queue size =  4
+Epoch(t): 23 accuracy: 91.8 loss 0.2724383619427681
+Client 8 trained
+Client 2 uploaded
+Epoch(t): 23 poison accuracy: 11.7 poison loss 10.293912448883056
+| current_time | 0 = 1 25 != 24
+| queue.size | 5 <=  10
+| current_epoch 25 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 16 - 25 | queue size =  4
+Epoch(t): 24 accuracy: 91.89 loss 0.2683984769880772
+Client 9 uploaded
+Client 1 trained
+Epoch(t): 24 poison accuracy: 11.65 poison loss 10.411437740325928
+| current_time | 0 = 1 26 != 25
+| queue.size | 5 <=  10
+| current_epoch 26 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 17 - 26 | queue size =  4
+Epoch(t): 25 accuracy: 92.13 loss 0.26368581905961036
+Client 1 uploaded
+Epoch(t): 25 poison accuracy: 11.6 poison loss 10.555708150863648
+| current_time | 0 = 1 27 != 26
+| queue.size | 5 <=  10
+| current_epoch 27 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 18 - 27 | queue size =  4
+Client 8 uploaded
+Epoch(t): 26 accuracy: 92.18 loss 0.25939296051859856
+Client 4 trained
+Client 0 trained
+Epoch(t): 26 poison accuracy: 11.59 poison loss 10.633752012252808
+| current_time | 0 = 1 28 != 27
+| queue.size | 5 <=  10
+| current_epoch 28 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 19 - 28 | queue size =  4
+Epoch(t): 27 accuracy: 92.37 loss 0.25596842490136623
+Client 3 trained
+Client 0 uploaded
+Epoch(t): 27 poison accuracy: 11.6 poison loss 10.781069917678833
+| current_time | 0 = 1 29 != 28
+| queue.size | 5 <=  10
+| current_epoch 29 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 21 - 29 | queue size =  4
+Client 4 uploaded
+Epoch(t): 28 accuracy: 93.86 loss 0.19192522436380385
+Client 5 trained
+Epoch(t): 28 poison accuracy: 11.56 poison loss 12.89855354309082
+| current_time | 0 = 1 30 != 29
+| queue.size | 5 <=  10
+| current_epoch 30 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 20 - 30 | queue size =  4
+Epoch(t): 29 accuracy: 93.78 loss 0.19320000931620598
+Client 3 uploaded
+Client 6 trained
+Epoch(t): 29 poison accuracy: 11.55 poison loss 12.967997608184815
+| current_time | 0 = 1 31 != 30
+| queue.size | 5 <=  10
+| current_epoch 31 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 23 - 31 | queue size =  4
+Epoch(t): 30 accuracy: 93.63 loss 0.20596357993781567
+Client 5 uploaded
+Client 7 trained
+Epoch(t): 30 poison accuracy: 11.4 poison loss 12.199561166763306
+| current_time | 0 = 1 32 != 31
+| queue.size | 5 <=  10
+| current_epoch 32 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 22 - 32 | queue size =  4
+Epoch(t): 31 accuracy: 93.73 loss 0.20370291732251644
+Client 2 trained
+Epoch(t): 31 poison accuracy: 11.43 poison loss 12.190489778518677
+| current_time | 0 = 1 33 != 32
+| queue.size | 4 <=  10
+| current_epoch 33 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 24 - 33 | queue size =  3
+Epoch(t): 32 accuracy: 93.8 loss 0.20423929952085018
+Client 6 uploaded
+Client 9 trained
+Epoch(t): 32 poison accuracy: 11.56 poison loss 10.623011236190797
+| current_time | 0 = 1 34 != 33
+| queue.size | 4 <=  10
+| current_epoch 34 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 25 - 34 | queue size =  3
+Client 2 uploaded
+Client 7 uploaded
+Epoch(t): 33 accuracy: 93.84 loss 0.20157435148954392
+Client 1 trained
+Epoch(t): 33 poison accuracy: 11.55 poison loss 10.713531522750854
+| current_time | 0 = 1 35 != 34
+| queue.size | 5 <=  10
+| current_epoch 35 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 26 - 35 | queue size =  4
+Epoch(t): 34 accuracy: 93.83 loss 0.19922190234065057
+Client 8 trained
+Client 1 uploaded
+Epoch(t): 34 poison accuracy: 11.55 poison loss 10.86174298286438
+| current_time | 0 = 1 36 != 35
+| queue.size | 5 <=  10
+| current_epoch 36 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 27 - 36 | queue size =  4
+Epoch(t): 35 accuracy: 94.0 loss 0.19627432204782963
+Client 9 uploaded
+Epoch(t): 35 poison accuracy: 11.52 poison loss 10.949067506790161
+| current_time | 0 = 1 37 != 36
+| queue.size | 5 <=  10
+| current_epoch 37 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 28 - 37 | queue size =  4
+Epoch(t): 36 accuracy: 94.12 loss 0.1928579181805253
+Client 4 trained
+Client 0 trained
+Client 8 uploaded
+Epoch(t): 36 poison accuracy: 11.53 poison loss 11.057063331604004
+| current_time | 0 = 1 38 != 37
+| queue.size | 5 <=  10
+| current_epoch 38 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 30 - 38 | queue size =  4
+Epoch(t): 37 accuracy: 94.97 loss 0.16042363047599792
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 37 poison accuracy: 11.52 poison loss 14.196454906463623
+| current_time | 0 = 1 39 != 38
+| queue.size | 5 <=  10
+| current_epoch 39 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 29 - 39 | queue size =  4
+Epoch(t): 38 accuracy: 95.1 loss 0.15851259235292672
+Client 4 uploaded
+Epoch(t): 38 poison accuracy: 11.52 poison loss 14.109868841171265
+| current_time | 0 = 1 40 != 39
+| queue.size | 5 <=  10
+| current_epoch 40 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 32 - 40 | queue size =  4
+Client 5 trained
+Epoch(t): 39 accuracy: 95.05 loss 0.1663697461783886
+Client 3 uploaded
+Epoch(t): 39 poison accuracy: 11.65 poison loss 11.991770582199097
+| current_time | 0 = 1 41 != 40
+| queue.size | 5 <=  10
+| current_epoch 41 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 31 - 41 | queue size =  4
+Client 6 trained
+Epoch(t): 40 accuracy: 95.06 loss 0.1650158692896366
+Client 5 uploaded
+Client 2 trained
+Epoch(t): 40 poison accuracy: 11.65 poison loss 12.090964698791504
+| current_time | 0 = 1 42 != 41
+| queue.size | 5 <=  10
+| current_epoch 42 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 33 - 42 | queue size =  4
+Epoch(t): 41 accuracy: 95.21 loss 0.16038835376501084
+Client 7 trained
+Epoch(t): 41 poison accuracy: 11.64 poison loss 12.126123151779176
+| current_time | 0 = 1 43 != 42
+| queue.size | 4 <=  10
+| current_epoch 43 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 34 - 43 | queue size =  3
+Client 2 uploaded
+Client 6 uploaded
+Epoch(t): 42 accuracy: 95.12 loss 0.16175961147993803
+Client 1 trained
+Epoch(t): 42 poison accuracy: 11.71 poison loss 10.914592971801758
+| current_time | 0 = 1 44 != 43
+| queue.size | 5 <=  10
+| current_epoch 44 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 35 - 44 | queue size =  4
+Epoch(t): 43 accuracy: 95.23 loss 0.15935135066509246
+Client 9 trained
+Client 7 uploaded
+Client 1 uploaded
+Epoch(t): 43 poison accuracy: 11.67 poison loss 11.003376808166504
+| current_time | 0 = 1 45 != 44
+| queue.size | 6 <=  10
+| current_epoch 45 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 36 - 45 | queue size =  5
+Epoch(t): 44 accuracy: 95.34 loss 0.15642206370830536
+Client 8 trained
+Epoch(t): 44 poison accuracy: 11.65 poison loss 11.118440494537353
+| current_time | 0 = 1 46 != 45
+| queue.size | 5 <=  10
+| current_epoch 46 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 37 - 46 | queue size =  4
+Epoch(t): 45 accuracy: 95.44 loss 0.15419100612401962
+Epoch(t): 45 poison accuracy: 11.63 poison loss 11.237862091064454
+| current_time | 0 = 1 47 != 46
+| queue.size | 4 <=  10
+| current_epoch 47 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 39 - 47 | queue size =  3
+Epoch(t): 46 accuracy: 95.84 loss 0.13003371961414814
+Client 9 uploaded
+Client 4 trained
+Client 0 trained
+Epoch(t): 46 poison accuracy: 11.37 poison loss 15.614002904891969
+| current_time | 0 = 1 48 != 47
+| queue.size | 4 <=  10
+| current_epoch 48 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 38 - 48 | queue size =  3
+Epoch(t): 47 accuracy: 95.81 loss 0.1292650126107037
+Client 8 uploaded
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 47 poison accuracy: 11.37 poison loss 15.465743532180786
+| current_time | 0 = 1 49 != 48
+| queue.size | 5 <=  10
+| current_epoch 49 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 40 - 49 | queue size =  4
+Epoch(t): 48 accuracy: 95.9 loss 0.1269897829182446
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 48 poison accuracy: 11.39 poison loss 15.386168909072875
+| current_time | 0 = 1 50 != 49
+| queue.size | 5 <=  10
+| current_epoch 50 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 41 - 50 | queue size =  4
+Epoch(t): 49 accuracy: 96.02 loss 0.12511792827397586
+Client 3 uploaded
+Epoch(t): 49 poison accuracy: 11.39 poison loss 15.201668376922607
+| current_time | 0 = 1 51 != 50
+| queue.size | 5 <=  10
+| current_epoch 51 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 42 - 51 | queue size =  4
+Client 2 trained
+Epoch(t): 50 accuracy: 96.08 loss 0.12416738152503967
+Client 5 uploaded
+Client 6 trained
+Epoch(t): 50 poison accuracy: 11.38 poison loss 15.162513437271118
+| current_time | 0 = 1 52 != 51
+| queue.size | 5 <=  10
+| current_epoch 52 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 43 - 52 | queue size =  4
+Client 2 uploaded
+Epoch(t): 51 accuracy: 96.17 loss 0.12283125335350632
+Client 7 trained
+Epoch(t): 51 poison accuracy: 11.38 poison loss 15.050651197433472
+| current_time | 0 = 1 53 != 52
+| queue.size | 5 <=  10
+| current_epoch 53 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 44 - 53 | queue size =  4
+Epoch(t): 52 accuracy: 96.14 loss 0.12333168579265476
+Client 6 uploaded
+Client 1 trained
+Epoch(t): 52 poison accuracy: 11.4 poison loss 13.956143579483033
+| current_time | 0 = 1 54 != 53
+| queue.size | 5 <=  10
+| current_epoch 54 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 45 - 54 | queue size =  4
+Epoch(t): 53 accuracy: 96.21 loss 0.12229077320545911
+Client 9 trained
+Client 1 uploaded
+Client 7 uploaded
+Epoch(t): 53 poison accuracy: 11.38 poison loss 13.917904472351074
+| current_time | 0 = 1 55 != 54
+| queue.size | 6 <=  10
+| current_epoch 55 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 46 - 55 | queue size =  5
+Epoch(t): 54 accuracy: 96.21 loss 0.12180023368448019
+Client 8 trained
+Epoch(t): 54 poison accuracy: 11.38 poison loss 13.86390079498291
+| current_time | 0 = 1 56 != 55
+| queue.size | 5 <=  10
+| current_epoch 56 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 47 - 56 | queue size =  4
+Epoch(t): 55 accuracy: 96.28 loss 0.12062161438167095
+Epoch(t): 55 poison accuracy: 11.37 poison loss 13.766685371398927
+| current_time | 0 = 1 57 != 56
+| queue.size | 4 <=  10
+| current_epoch 57 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 48 - 57 | queue size =  3
+Client 9 uploaded
+Epoch(t): 56 accuracy: 96.42 loss 0.11828390276059508
+Client 4 trained
+Client 0 trained
+Epoch(t): 56 poison accuracy: 11.37 poison loss 13.938144264221192
+| current_time | 0 = 1 58 != 57
+| queue.size | 4 <=  10
+| current_epoch 58 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 49 - 58 | queue size =  3
+Client 8 uploaded
+Epoch(t): 57 accuracy: 96.4 loss 0.1166747871413827
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 57 poison accuracy: 11.38 poison loss 13.966397695541382
+| current_time | 0 = 1 59 != 58
+| queue.size | 5 <=  10
+| current_epoch 59 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 51 - 59 | queue size =  4
+Epoch(t): 58 accuracy: 95.66 loss 0.13554624304175378
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 58 poison accuracy: 11.44 poison loss 13.664177312850953
+| current_time | 0 = 1 60 != 59
+| queue.size | 5 <=  10
+| current_epoch 60 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 50 - 60 | queue size =  4
+Epoch(t): 59 accuracy: 95.75 loss 0.13301163792610168
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 59 poison accuracy: 11.43 poison loss 13.710554466247558
+| current_time | 0 = 1 61 != 60
+| queue.size | 5 <=  10
+| current_epoch 61 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 52 - 61 | queue size =  4
+Epoch(t): 60 accuracy: 96.0 loss 0.12676443420350553
+Client 5 uploaded
+Client 6 trained
+Client 2 uploaded
+Epoch(t): 60 poison accuracy: 11.42 poison loss 13.85538242340088
+| current_time | 0 = 1 62 != 61
+| queue.size | 6 <=  10
+| current_epoch 62 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 53 - 62 | queue size =  5
+Epoch(t): 61 accuracy: 96.08 loss 0.12156903734430671
+Client 1 trained
+Epoch(t): 61 poison accuracy: 11.41 poison loss 13.920904159545898
+| current_time | 0 = 1 63 != 62
+| queue.size | 5 <=  10
+| current_epoch 63 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 54 - 63 | queue size =  4
+Epoch(t): 62 accuracy: 96.25 loss 0.11994874883443117
+Client 7 trained
+Epoch(t): 62 poison accuracy: 11.47 poison loss 12.924458055496215
+| current_time | 0 = 1 64 != 63
+| queue.size | 4 <=  10
+| current_epoch 64 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 55 - 64 | queue size =  3
+Client 6 uploaded
+Client 1 uploaded
+Epoch(t): 63 accuracy: 96.4 loss 0.11782547241076827
+Client 9 trained
+Epoch(t): 63 poison accuracy: 11.45 poison loss 13.012527084350586
+| current_time | 0 = 1 65 != 64
+| queue.size | 5 <=  10
+| current_epoch 65 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 56 - 65 | queue size =  4
+Epoch(t): 64 accuracy: 96.55 loss 0.11566248554736376
+Client 7 uploaded
+Client 8 trained
+Epoch(t): 64 poison accuracy: 11.45 poison loss 13.05170536994934
+| current_time | 0 = 1 66 != 65
+| queue.size | 5 <=  10
+| current_epoch 66 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 57 - 66 | queue size =  4
+Epoch(t): 65 accuracy: 96.59 loss 0.11284267500042916
+Epoch(t): 65 poison accuracy: 11.46 poison loss 13.048372802734375
+| current_time | 0 = 1 67 != 66
+| queue.size | 4 <=  10
+| current_epoch 67 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 58 - 67 | queue size =  3
+Client 9 uploaded
+Epoch(t): 66 accuracy: 96.73 loss 0.10910892190411686
+Client 4 trained
+Client 0 trained
+Epoch(t): 66 poison accuracy: 11.47 poison loss 13.261641492843628
+| current_time | 0 = 1 68 != 67
+| queue.size | 4 <=  10
+| current_epoch 68 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 59 - 68 | queue size =  3
+Client 8 uploaded
+Epoch(t): 67 accuracy: 96.88 loss 0.10620790487155318
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 67 poison accuracy: 11.45 poison loss 13.285316038131715
+| current_time | 0 = 1 69 != 68
+| queue.size | 5 <=  10
+| current_epoch 69 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 60 - 69 | queue size =  4
+Epoch(t): 68 accuracy: 97.0 loss 0.10521365240216256
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 68 poison accuracy: 11.46 poison loss 13.346811571121215
+| current_time | 0 = 1 70 != 69
+| queue.size | 5 <=  10
+| current_epoch 70 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 61 - 70 | queue size =  4
+Epoch(t): 69 accuracy: 96.97 loss 0.10304520495235919
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 69 poison accuracy: 11.44 poison loss 13.43324803352356
+| current_time | 0 = 1 71 != 70
+| queue.size | 5 <=  10
+| current_epoch 71 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 62 - 71 | queue size =  4
+Epoch(t): 70 accuracy: 97.02 loss 0.10156411971896886
+Client 5 uploaded
+Client 6 trained
+Epoch(t): 70 poison accuracy: 11.45 poison loss 13.546240043640136
+| current_time | 0 = 1 72 != 71
+| queue.size | 5 <=  10
+| current_epoch 72 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 63 - 72 | queue size =  4
+Client 2 uploaded
+Epoch(t): 71 accuracy: 97.05 loss 0.0998279477097094
+Client 1 trained
+Epoch(t): 71 poison accuracy: 11.44 poison loss 13.653045158386231
+| current_time | 0 = 1 73 != 72
+| queue.size | 5 <=  10
+| current_epoch 73 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 64 - 73 | queue size =  4
+Epoch(t): 72 accuracy: 97.06 loss 0.10046940611675381
+Client 7 trained
+Epoch(t): 72 poison accuracy: 11.53 poison loss 12.595524454116822
+| current_time | 0 = 1 74 != 73
+| queue.size | 4 <=  10
+| current_epoch 74 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 65 - 74 | queue size =  3
+Client 1 uploaded
+Client 6 uploaded
+Epoch(t): 73 accuracy: 97.09 loss 0.09910910496488214
+Client 9 trained
+Epoch(t): 73 poison accuracy: 11.49 poison loss 12.743046321868896
+| current_time | 0 = 1 75 != 74
+| queue.size | 5 <=  10
+| current_epoch 75 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 66 - 75 | queue size =  4
+Epoch(t): 74 accuracy: 97.14 loss 0.09773700151592493
+Client 7 uploaded
+Client 8 trained
+Epoch(t): 74 poison accuracy: 11.47 poison loss 12.826732788085938
+| current_time | 0 = 1 76 != 75
+| queue.size | 5 <=  10
+| current_epoch 76 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 67 - 76 | queue size =  4
+Epoch(t): 75 accuracy: 97.19 loss 0.0970166628435254
+Epoch(t): 75 poison accuracy: 11.49 poison loss 12.856760129928588
+| current_time | 0 = 1 77 != 76
+| queue.size | 4 <=  10
+| current_epoch 77 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 68 - 77 | queue size =  3
+Client 9 uploaded
+Client 4 trained
+Epoch(t): 76 accuracy: 97.15 loss 0.09682444747537375
+Client 0 trained
+Epoch(t): 76 poison accuracy: 11.47 poison loss 13.031346263885498
+| current_time | 0 = 1 78 != 77
+| queue.size | 4 <=  10
+| current_epoch 78 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 70 - 78 | queue size =  3
+Epoch(t): 77 accuracy: 96.71 loss 0.11467131577432156
+Client 0 uploaded
+Client 8 uploaded
+Client 3 trained
+Epoch(t): 77 poison accuracy: 11.57 poison loss 12.809706897735596
+| current_time | 0 = 1 79 != 78
+| queue.size | 5 <=  10
+| current_epoch 79 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 69 - 79 | queue size =  4
+Epoch(t): 78 accuracy: 96.77 loss 0.11256770927459002
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 78 poison accuracy: 11.57 poison loss 12.828659324645995
+| current_time | 0 = 1 80 != 79
+| queue.size | 5 <=  10
+| current_epoch 80 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 71 - 80 | queue size =  4
+Epoch(t): 79 accuracy: 96.92 loss 0.10814030647277832
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 79 poison accuracy: 11.56 poison loss 12.887075319290162
+| current_time | 0 = 1 81 != 80
+| queue.size | 5 <=  10
+| current_epoch 81 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 72 - 81 | queue size =  4
+Epoch(t): 80 accuracy: 97.02 loss 0.10373159527778625
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 80 poison accuracy: 11.56 poison loss 13.127358407974244
+| current_time | 0 = 1 82 != 81
+| queue.size | 5 <=  10
+| current_epoch 82 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 74 - 82 | queue size =  4
+Client 2 uploaded
+Epoch(t): 81 accuracy: 95.96 loss 0.13362520799040795
+Client 6 trained
+Epoch(t): 81 poison accuracy: 96.56 poison loss 0.10667834214866162
+| current_time | 0 = 1 83 != 82
+| queue.size | 5 <=  10
+| current_epoch 83 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 73 - 83 | queue size =  4
+Epoch(t): 82 accuracy: 96.13 loss 0.1280784137547016
+Client 1 uploaded
+Client 7 trained
+Epoch(t): 82 poison accuracy: 87.68 poison loss 0.29607394501566886
+| current_time | 0 = 1 84 != 83
+| queue.size | 5 <=  10
+| current_epoch 84 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 75 - 84 | queue size =  4
+Epoch(t): 83 accuracy: 96.47 loss 0.11883020844310523
+Epoch(t): 83 poison accuracy: 53.47 poison loss 1.1188545501232148
+| current_time | 0 = 1 85 != 84
+| queue.size | 4 <=  10
+| current_epoch 85 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 76 - 85 | queue size =  3
+Client 6 uploaded
+Client 9 trained
+Epoch(t): 84 accuracy: 96.67 loss 0.11200381252914667
+Client 7 uploaded
+Epoch(t): 84 poison accuracy: 29.77 poison loss 2.390990204811096
+| current_time | 0 = 1 86 != 85
+| queue.size | 5 <=  10
+| current_epoch 86 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 77 - 86 | queue size =  4
+Epoch(t): 85 accuracy: 96.82 loss 0.10789816584438086
+Client 8 trained
+Client 0 trained
+Epoch(t): 85 poison accuracy: 20.19 poison loss 3.634638743400574
+| current_time | 0 = 1 87 != 86
+| queue.size | 4 <=  10
+| current_epoch 87 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 78 - 87 | queue size =  3
+Epoch(t): 86 accuracy: 96.87 loss 0.10391001196578145
+Client 9 uploaded
+Client 4 trained
+Client 0 uploaded
+Epoch(t): 86 poison accuracy: 16.03 poison loss 4.867030010223389
+| current_time | 0 = 1 88 != 87
+| queue.size | 5 <=  10
+| current_epoch 88 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 79 - 88 | queue size =  4
+Epoch(t): 87 accuracy: 96.92 loss 0.10168383313342928
+Client 3 trained
+Epoch(t): 87 poison accuracy: 14.05 poison loss 5.896413235664368
+| current_time | 0 = 1 89 != 88
+| queue.size | 4 <=  10
+| current_epoch 89 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 80 - 89 | queue size =  3
+Epoch(t): 88 accuracy: 96.95 loss 0.09909736841917038
+Client 4 uploaded
+Client 8 uploaded
+Client 5 trained
+Epoch(t): 88 poison accuracy: 13.25 poison loss 6.808267641067505
+| current_time | 0 = 1 90 != 89
+| queue.size | 5 <=  10
+| current_epoch 90 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 81 - 90 | queue size =  4
+Epoch(t): 89 accuracy: 97.04 loss 0.09638206347823143
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 89 poison accuracy: 12.73 poison loss 7.594841313362122
+| current_time | 0 = 1 91 != 90
+| queue.size | 5 <=  10
+| current_epoch 91 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 82 - 91 | queue size =  4
+Epoch(t): 90 accuracy: 97.08 loss 0.0943861160799861
+Client 5 uploaded
+Client 2 uploaded
+Client 1 trained
+Epoch(t): 90 poison accuracy: 12.44 poison loss 8.25447611808777
+| current_time | 0 = 1 92 != 91
+| queue.size | 6 <=  10
+| current_epoch 92 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 83 - 92 | queue size =  5
+Epoch(t): 91 accuracy: 97.06 loss 0.09517204040661455
+Client 6 trained
+Epoch(t): 91 poison accuracy: 12.8 poison loss 7.662158617973327
+| current_time | 0 = 1 93 != 92
+| queue.size | 5 <=  10
+| current_epoch 93 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 85 - 93 | queue size =  4
+Client 1 uploaded
+Epoch(t): 92 accuracy: 96.98 loss 0.09890703119337559
+Client 7 trained
+Epoch(t): 92 poison accuracy: 14.91 poison loss 6.606652388572693
+| current_time | 0 = 1 94 != 93
+| queue.size | 5 <=  10
+| current_epoch 94 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 84 - 94 | queue size =  4
+Epoch(t): 93 accuracy: 97.04 loss 0.09696219749748707
+Client 6 uploaded
+Client 9 trained
+Epoch(t): 93 poison accuracy: 14.98 poison loss 6.564378280639648
+| current_time | 0 = 1 95 != 94
+| queue.size | 5 <=  10
+| current_epoch 95 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 86 - 95 | queue size =  4
+Epoch(t): 94 accuracy: 97.13 loss 0.09347347186878324
+Client 7 uploaded
+Epoch(t): 94 poison accuracy: 14.91 poison loss 6.592248330116272
+| current_time | 0 = 1 96 != 95
+| queue.size | 5 <=  10
+| current_epoch 96 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 87 - 96 | queue size =  4
+Epoch(t): 95 accuracy: 97.14 loss 0.09127891396172344
+Client 4 trained
+Client 0 trained
+Epoch(t): 95 poison accuracy: 14.56 poison loss 6.76322991847992
+| current_time | 0 = 1 97 != 96
+| queue.size | 4 <=  10
+| current_epoch 97 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 88 - 97 | queue size =  3
+Epoch(t): 96 accuracy: 97.25 loss 0.08894285324029624
+Client 9 uploaded
+Client 0 uploaded
+Client 8 trained
+Epoch(t): 96 poison accuracy: 14.17 poison loss 7.1018792295455935
+| current_time | 0 = 1 98 != 97
+| queue.size | 5 <=  10
+| current_epoch 98 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 89 - 98 | queue size =  4
+Epoch(t): 97 accuracy: 97.28 loss 0.08781367600895465
+Client 4 uploaded
+Client 3 trained
+Epoch(t): 97 poison accuracy: 13.73 poison loss 7.329507622718811
+| current_time | 0 = 1 99 != 98
+| queue.size | 5 <=  10
+| current_epoch 99 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 90 - 99 | queue size =  4
+Epoch(t): 98 accuracy: 97.43 loss 0.08616368046030402
+Epoch(t): 98 poison accuracy: 13.33 poison loss 7.699788217544556
+| current_time | 0 = 1 100 != 99
+| queue.size | 4 <=  10
+| current_epoch 100 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 91 - 100 | queue size =  3
+Client 5 trained
+Epoch(t): 99 accuracy: 97.39 loss 0.08436366630718112
+Client 8 uploaded
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 99 poison accuracy: 13.12 poison loss 7.971185894012451
+| current_time | 0 = 1 101 != 100
+| queue.size | 5 <=  10
+| current_epoch 101 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 92 - 101 | queue size =  4
+Epoch(t): 100 accuracy: 97.42 loss 0.08364840036258102
+Client 5 uploaded
+Epoch(t): 100 poison accuracy: 12.9 poison loss 8.304335823059082
+| current_time | 0 = 1 102 != 101
+| queue.size | 5 <=  10
+| current_epoch 102 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 93 - 102 | queue size =  4
+Client 2 uploaded
+Client 1 trained
+Epoch(t): 101 accuracy: 97.42 loss 0.084033567244187
+Client 6 trained
+Epoch(t): 101 poison accuracy: 13.52 poison loss 7.415434775352478
+| current_time | 0 = 1 103 != 102
+| queue.size | 5 <=  10
+| current_epoch 103 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 94 - 103 | queue size =  4
+Epoch(t): 102 accuracy: 97.44 loss 0.08361275942996144
+Client 1 uploaded
+Client 7 trained
+Epoch(t): 102 poison accuracy: 13.51 poison loss 7.520783967971802
+| current_time | 0 = 1 104 != 103
+| queue.size | 5 <=  10
+| current_epoch 104 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 95 - 104 | queue size =  4
+Epoch(t): 103 accuracy: 97.43 loss 0.08249897088855505
+Client 9 trained
+Client 6 uploaded
+Epoch(t): 103 poison accuracy: 13.48 poison loss 7.593954691886902
+| current_time | 0 = 1 105 != 104
+| queue.size | 5 <=  10
+| current_epoch 105 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 96 - 105 | queue size =  4
+Epoch(t): 104 accuracy: 97.49 loss 0.08067410679534077
+Client 7 uploaded
+Epoch(t): 104 poison accuracy: 13.5 poison loss 7.5785963821411135
+| current_time | 0 = 1 106 != 105
+| queue.size | 5 <=  10
+| current_epoch 106 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 97 - 106 | queue size =  4
+Epoch(t): 105 accuracy: 97.52 loss 0.07957373665645719
+Client 4 trained
+Client 0 trained
+Epoch(t): 105 poison accuracy: 13.41 poison loss 7.716034712791443
+| current_time | 0 = 1 107 != 106
+| queue.size | 4 <=  10
+| current_epoch 107 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 98 - 107 | queue size =  3
+Epoch(t): 106 accuracy: 97.53 loss 0.07885313343256711
+Client 0 uploaded
+Client 9 uploaded
+Client 8 trained
+Epoch(t): 106 poison accuracy: 13.44 poison loss 7.799783701896668
+| current_time | 0 = 1 108 != 107
+| queue.size | 5 <=  10
+| current_epoch 108 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 99 - 108 | queue size =  4
+Epoch(t): 107 accuracy: 97.51 loss 0.07840110443532466
+Client 4 uploaded
+Client 3 trained
+Epoch(t): 107 poison accuracy: 13.42 poison loss 7.8839451122283934
+| current_time | 0 = 1 109 != 108
+| queue.size | 5 <=  10
+| current_epoch 109 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 100 - 109 | queue size =  4
+Epoch(t): 108 accuracy: 97.57 loss 0.07737027935683727
+Epoch(t): 108 poison accuracy: 13.36 poison loss 7.9811995363235475
+| current_time | 0 = 1 110 != 109
+| queue.size | 4 <=  10
+| current_epoch 110 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 101 - 110 | queue size =  3
+Client 5 trained
+Epoch(t): 109 accuracy: 97.53 loss 0.07644926712848246
+Client 8 uploaded
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 109 poison accuracy: 13.37 poison loss 8.062661719322204
+| current_time | 0 = 1 111 != 110
+| queue.size | 5 <=  10
+| current_epoch 111 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 103 - 111 | queue size =  4
+Epoch(t): 110 accuracy: 96.98 loss 0.09286011099815368
+Client 5 uploaded
+Client 2 uploaded
+Epoch(t): 110 poison accuracy: 99.21 poison loss 0.029071578178554772
+| current_time | 0 = 1 112 != 111
+| queue.size | 6 <=  10
+| current_epoch 112 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 102 - 112 | queue size =  5
+Client 1 trained
+Epoch(t): 111 accuracy: 97.09 loss 0.09051147628575563
+Client 6 trained
+Epoch(t): 111 poison accuracy: 98.14 poison loss 0.05898318296298385
+| current_time | 0 = 1 113 != 112
+| queue.size | 5 <=  10
+| current_epoch 113 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 104 - 113 | queue size =  4
+Client 1 uploaded
+Epoch(t): 112 accuracy: 97.22 loss 0.08803542874753476
+Client 7 trained
+Epoch(t): 112 poison accuracy: 92.63 poison loss 0.18943277515470983
+| current_time | 0 = 1 114 != 113
+| queue.size | 5 <=  10
+| current_epoch 114 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 105 - 114 | queue size =  4
+Epoch(t): 113 accuracy: 97.32 loss 0.08521308938041329
+Epoch(t): 113 poison accuracy: 80.81 poison loss 0.44795637488365175
+| current_time | 0 = 1 115 != 114
+| queue.size | 4 <=  10
+| current_epoch 115 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 106 - 115 | queue size =  3
+Client 6 uploaded
+Epoch(t): 114 accuracy: 97.35 loss 0.08285922949202358
+Client 9 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 114 poison accuracy: 66.37 poison loss 0.842661851644516
+| current_time | 0 = 1 116 != 115
+| queue.size | 5 <=  10
+| current_epoch 116 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 107 - 116 | queue size =  4
+Epoch(t): 115 accuracy: 97.42 loss 0.0809244767948985
+Client 4 trained
+Client 0 uploaded
+Epoch(t): 115 poison accuracy: 52.99 poison loss 1.34629758477211
+| current_time | 0 = 1 117 != 116
+| queue.size | 5 <=  10
+| current_epoch 117 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 108 - 117 | queue size =  4
+Epoch(t): 116 accuracy: 97.52 loss 0.07864448050037026
+Client 8 trained
+Epoch(t): 116 poison accuracy: 41.46 poison loss 1.9408776986598968
+| current_time | 0 = 1 118 != 117
+| queue.size | 4 <=  10
+| current_epoch 118 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 109 - 118 | queue size =  3
+Epoch(t): 117 accuracy: 97.52 loss 0.07755699856206774
+Client 4 uploaded
+Client 9 uploaded
+Epoch(t): 117 poison accuracy: 34.25 poison loss 2.4784343492984773
+| current_time | 0 = 1 119 != 118
+| queue.size | 5 <=  10
+| current_epoch 119 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 110 - 119 | queue size =  4
+Client 3 trained
+Epoch(t): 118 accuracy: 97.62 loss 0.07634409639984369
+Epoch(t): 118 poison accuracy: 28.48 poison loss 3.0789812994003296
+| current_time | 0 = 1 120 != 119
+| queue.size | 4 <=  10
+| current_epoch 120 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Client 5 trained
+Updater received data from client 7 | staleness = 111 - 120 | queue size =  3
+Epoch(t): 119 accuracy: 97.63 loss 0.07534344680607319
+Client 8 uploaded
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 119 poison accuracy: 24.61 poison loss 3.6235528707504274
+| current_time | 0 = 1 121 != 120
+| queue.size | 5 <=  10
+| current_epoch 121 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 112 - 121 | queue size =  4
+Epoch(t): 120 accuracy: 97.63 loss 0.07579019483178855
+Client 5 uploaded
+Epoch(t): 120 poison accuracy: 29.78 poison loss 2.9661562728881834
+| current_time | 0 = 1 122 != 121
+| queue.size | 5 <=  10
+| current_epoch 122 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 114 - 122 | queue size =  4
+Client 2 uploaded
+Client 1 trained
+Epoch(t): 121 accuracy: 97.2 loss 0.09011184374801814
+Client 6 trained
+Epoch(t): 121 poison accuracy: 33.81 poison loss 3.128984410762787
+| current_time | 0 = 1 123 != 122
+| queue.size | 5 <=  10
+| current_epoch 123 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 113 - 123 | queue size =  4
+Epoch(t): 122 accuracy: 97.24 loss 0.08808233551681041
+Client 1 uploaded
+Client 7 trained
+Epoch(t): 122 poison accuracy: 34.37 poison loss 3.0356529355049133
+| current_time | 0 = 1 124 != 123
+| queue.size | 5 <=  10
+| current_epoch 124 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 115 - 124 | queue size =  4
+Epoch(t): 123 accuracy: 97.32 loss 0.08498149222694337
+Client 6 uploaded
+Epoch(t): 123 poison accuracy: 34.38 poison loss 3.005270757675171
+| current_time | 0 = 1 125 != 124
+| queue.size | 5 <=  10
+| current_epoch 125 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 116 - 125 | queue size =  4
+Epoch(t): 124 accuracy: 97.4 loss 0.0816503544524312
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 124 poison accuracy: 33.68 poison loss 3.05056193113327
+| current_time | 0 = 1 126 != 125
+| queue.size | 5 <=  10
+| current_epoch 126 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 117 - 126 | queue size =  4
+Client 9 trained
+Epoch(t): 125 accuracy: 97.48 loss 0.07908208884298801
+Client 0 uploaded
+Epoch(t): 125 poison accuracy: 32.49 poison loss 3.1717788648605345
+| current_time | 0 = 1 127 != 126
+| queue.size | 5 <=  10
+| current_epoch 127 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 118 - 127 | queue size =  4
+Client 4 uploaded
+Epoch(t): 126 accuracy: 97.54 loss 0.07699889577925205
+Client 8 trained
+Epoch(t): 126 poison accuracy: 30.14 poison loss 3.442283763885498
+| current_time | 0 = 1 128 != 127
+| queue.size | 5 <=  10
+| current_epoch 128 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 119 - 128 | queue size =  4
+Epoch(t): 127 accuracy: 97.55 loss 0.07554066786542535
+Epoch(t): 127 poison accuracy: 27.97 poison loss 3.6905837631225586
+| current_time | 0 = 1 129 != 128
+| queue.size | 4 <=  10
+| current_epoch 129 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 120 - 129 | queue size =  3
+Client 3 trained
+Epoch(t): 128 accuracy: 97.6 loss 0.07464904450811445
+Client 9 uploaded
+Client 5 trained
+Epoch(t): 128 poison accuracy: 26.45 poison loss 3.8955503559112548
+| current_time | 0 = 1 130 != 129
+| queue.size | 4 <=  10
+| current_epoch 130 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 121 - 130 | queue size =  3
+Epoch(t): 129 accuracy: 97.67 loss 0.07315622757188976
+Client 8 uploaded
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 129 poison accuracy: 24.91 poison loss 4.132674112319946
+| current_time | 0 = 1 131 != 130
+| queue.size | 5 <=  10
+| current_epoch 131 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 122 - 131 | queue size =  4
+Epoch(t): 130 accuracy: 97.65 loss 0.07270450437441468
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 130 poison accuracy: 30.27 poison loss 3.32630455493927
+| current_time | 0 = 1 132 != 131
+| queue.size | 5 <=  10
+| current_epoch 132 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 123 - 132 | queue size =  4
+Client 2 uploaded
+Epoch(t): 131 accuracy: 97.63 loss 0.07274754876736551
+Client 6 trained
+Epoch(t): 131 poison accuracy: 29.75 poison loss 3.4332578063011168
+| current_time | 0 = 1 133 != 132
+| queue.size | 5 <=  10
+| current_epoch 133 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 124 - 133 | queue size =  4
+Client 1 uploaded
+Epoch(t): 132 accuracy: 97.67 loss 0.07201093303970993
+Client 7 trained
+Epoch(t): 132 poison accuracy: 29.2 poison loss 3.5130292129516603
+| current_time | 0 = 1 134 != 133
+| queue.size | 5 <=  10
+| current_epoch 134 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 125 - 134 | queue size =  4
+Epoch(t): 133 accuracy: 97.69 loss 0.07101656843908132
+Client 6 uploaded
+Epoch(t): 133 poison accuracy: 28.55 poison loss 3.6108404874801634
+| current_time | 0 = 1 135 != 134
+| queue.size | 5 <=  10
+| current_epoch 135 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 126 - 135 | queue size =  4
+Epoch(t): 134 accuracy: 97.69 loss 0.06973632459994406
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 134 poison accuracy: 28.39 poison loss 3.635380983352661
+| current_time | 0 = 1 136 != 135
+| queue.size | 5 <=  10
+| current_epoch 136 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 127 - 136 | queue size =  4
+Epoch(t): 135 accuracy: 97.76 loss 0.06943397876340895
+Client 9 trained
+Client 0 uploaded
+Epoch(t): 135 poison accuracy: 27.48 poison loss 3.765469663143158
+| current_time | 0 = 1 137 != 136
+| queue.size | 5 <=  10
+| current_epoch 137 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 128 - 137 | queue size =  4
+Epoch(t): 136 accuracy: 97.74 loss 0.06860247989185154
+Client 4 uploaded
+Client 8 trained
+Epoch(t): 136 poison accuracy: 26.72 poison loss 3.9161149621009828
+| current_time | 0 = 1 138 != 137
+| queue.size | 5 <=  10
+| current_epoch 138 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 129 - 138 | queue size =  4
+Epoch(t): 137 accuracy: 97.78 loss 0.06799995900597423
+Epoch(t): 137 poison accuracy: 26.34 poison loss 3.9872954511642456
+| current_time | 0 = 1 139 != 138
+| queue.size | 4 <=  10
+| current_epoch 139 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 130 - 139 | queue size =  3
+Client 3 trained
+Epoch(t): 138 accuracy: 97.82 loss 0.06756219580769539
+Client 9 uploaded
+Client 5 trained
+Epoch(t): 138 poison accuracy: 25.95 poison loss 4.06505615234375
+| current_time | 0 = 1 140 != 139
+| queue.size | 4 <=  10
+| current_epoch 140 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 131 - 140 | queue size =  3
+Epoch(t): 139 accuracy: 97.84 loss 0.06697623144835234
+Client 8 uploaded
+Client 2 trained
+Epoch(t): 139 poison accuracy: 26.15 poison loss 4.0640580010414125
+| current_time | 0 = 1 141 != 140
+| queue.size | 4 <=  10
+| current_epoch 141 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 132 - 141 | queue size =  3
+Client 3 uploaded
+Epoch(t): 140 accuracy: 97.84 loss 0.06710053523536771
+Client 5 uploaded
+Epoch(t): 140 poison accuracy: 30.89 poison loss 3.318868136405945
+| current_time | 0 = 1 142 != 141
+| queue.size | 5 <=  10
+| current_epoch 142 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 133 - 142 | queue size =  4
+Client 1 trained
+Client 2 uploaded
+Epoch(t): 141 accuracy: 97.77 loss 0.06760176811367273
+Client 6 trained
+Epoch(t): 141 poison accuracy: 29.93 poison loss 3.454812331199646
+| current_time | 0 = 1 143 != 142
+| queue.size | 5 <=  10
+| current_epoch 143 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 134 - 143 | queue size =  4
+Epoch(t): 142 accuracy: 97.84 loss 0.06735967733897269
+Client 1 uploaded
+Client 7 trained
+Epoch(t): 142 poison accuracy: 29.27 poison loss 3.5504451632499694
+| current_time | 0 = 1 144 != 143
+| queue.size | 5 <=  10
+| current_epoch 144 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 135 - 144 | queue size =  4
+Epoch(t): 143 accuracy: 97.85 loss 0.06698469956871123
+Client 6 uploaded
+Epoch(t): 143 poison accuracy: 28.15 poison loss 3.7144027733802796
+| current_time | 0 = 1 145 != 144
+| queue.size | 5 <=  10
+| current_epoch 145 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 136 - 145 | queue size =  4
+Epoch(t): 144 accuracy: 97.9 loss 0.06642651788890362
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 144 poison accuracy: 27.62 poison loss 3.7810716962814332
+| current_time | 0 = 1 146 != 145
+| queue.size | 5 <=  10
+| current_epoch 146 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 137 - 146 | queue size =  4
+Epoch(t): 145 accuracy: 97.89 loss 0.0659738506982103
+Client 9 trained
+Client 0 uploaded
+Epoch(t): 145 poison accuracy: 27.39 poison loss 3.8503087520599366
+| current_time | 0 = 1 147 != 146
+| queue.size | 5 <=  10
+| current_epoch 147 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 138 - 147 | queue size =  4
+Epoch(t): 146 accuracy: 97.94 loss 0.06522790904622525
+Client 4 uploaded
+Client 8 trained
+Epoch(t): 146 poison accuracy: 26.85 poison loss 3.9834286093711855
+| current_time | 0 = 1 148 != 147
+| queue.size | 5 <=  10
+| current_epoch 148 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 139 - 148 | queue size =  4
+Epoch(t): 147 accuracy: 97.93 loss 0.06475891728885472
+Epoch(t): 147 poison accuracy: 26.33 poison loss 4.105720500946045
+| current_time | 0 = 1 149 != 148
+| queue.size | 4 <=  10
+| current_epoch 149 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 140 - 149 | queue size =  3
+Client 3 trained
+Epoch(t): 148 accuracy: 97.89 loss 0.06464995444752276
+Client 9 uploaded
+Client 5 trained
+Epoch(t): 148 poison accuracy: 25.8 poison loss 4.214913952350616
+| current_time | 0 = 1 150 != 149
+| queue.size | 4 <=  10
+| current_epoch 150 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 141 - 150 | queue size =  3
+Epoch(t): 149 accuracy: 97.92 loss 0.0642135559860617
+Client 2 trained
+Client 8 uploaded
+Epoch(t): 149 poison accuracy: 25.37 poison loss 4.287085645198822
+| current_time | 0 = 1 151 != 150
+| queue.size | 4 <=  10
+| current_epoch 151 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 142 - 151 | queue size =  3
+Client 3 uploaded
+Epoch(t): 150 accuracy: 97.9 loss 0.06435639095492661
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 150 poison accuracy: 29.68 poison loss 3.533872287273407
+| current_time | 0 = 1 152 != 151
+| queue.size | 5 <=  10
+| current_epoch 152 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Client 2 uploaded
+Updater received data from client 4 | staleness = 143 - 152 | queue size =  5
+Epoch(t): 151 accuracy: 97.91 loss 0.06445968800224364
+Client 6 trained
+Epoch(t): 151 poison accuracy: 28.17 poison loss 3.736289896965027
+| current_time | 0 = 1 153 != 152
+| queue.size | 5 <=  10
+| current_epoch 153 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 144 - 153 | queue size =  4
+Client 1 uploaded
+Epoch(t): 152 accuracy: 97.92 loss 0.06411056178621947
+Epoch(t): 152 poison accuracy: 27.75 poison loss 3.8196767497062685
+| current_time | 0 = 1 154 != 153
+| queue.size | 5 <=  10
+| current_epoch 154 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 145 - 154 | queue size =  4
+Client 7 trained
+Epoch(t): 153 accuracy: 97.93 loss 0.06409575190395117
+Client 6 uploaded
+Epoch(t): 153 poison accuracy: 26.98 poison loss 3.9776336550712585
+| current_time | 0 = 1 155 != 154
+| queue.size | 5 <=  10
+| current_epoch 155 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 146 - 155 | queue size =  4
+Epoch(t): 154 accuracy: 97.99 loss 0.06351379159837961
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 154 poison accuracy: 27.15 poison loss 3.925622298717499
+| current_time | 0 = 1 156 != 155
+| queue.size | 5 <=  10
+| current_epoch 156 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 147 - 156 | queue size =  4
+Epoch(t): 155 accuracy: 97.99 loss 0.06318932676222175
+Client 0 uploaded
+Client 9 trained
+Epoch(t): 155 poison accuracy: 27.13 poison loss 3.976614465713501
+| current_time | 0 = 1 157 != 156
+| queue.size | 5 <=  10
+| current_epoch 157 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 148 - 157 | queue size =  4
+Epoch(t): 156 accuracy: 97.98 loss 0.06263167016673833
+Client 4 uploaded
+Client 8 trained
+Epoch(t): 156 poison accuracy: 26.38 poison loss 4.162423663139343
+| current_time | 0 = 1 158 != 157
+| queue.size | 5 <=  10
+| current_epoch 158 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 149 - 158 | queue size =  4
+Epoch(t): 157 accuracy: 97.99 loss 0.06241669830866158
+Client 3 trained
+Epoch(t): 157 poison accuracy: 25.96 poison loss 4.236339027881622
+| current_time | 0 = 1 159 != 158
+| queue.size | 4 <=  10
+| current_epoch 159 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 150 - 159 | queue size =  3
+Epoch(t): 158 accuracy: 98.01 loss 0.062305803620256485
+Client 9 uploaded
+Client 5 trained
+Epoch(t): 158 poison accuracy: 25.51 poison loss 4.357299807071686
+| current_time | 0 = 1 160 != 159
+| queue.size | 4 <=  10
+| current_epoch 160 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 151 - 160 | queue size =  3
+Epoch(t): 159 accuracy: 97.98 loss 0.061864550318568946
+Client 3 uploaded
+Client 8 uploaded
+Client 2 trained
+Epoch(t): 159 poison accuracy: 25.07 poison loss 4.444087588787079
+| current_time | 0 = 1 161 != 160
+| queue.size | 5 <=  10
+| current_epoch 161 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 152 - 161 | queue size =  4
+Epoch(t): 160 accuracy: 98.01 loss 0.061841249358840285
+Client 5 uploaded
+Client 1 trained
+Client 2 uploaded
+Epoch(t): 160 poison accuracy: 30.0 poison loss 3.599598560333252
+| current_time | 0 = 1 162 != 161
+| queue.size | 6 <=  10
+| current_epoch 162 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 153 - 162 | queue size =  5
+Epoch(t): 161 accuracy: 98.02 loss 0.06198073740117252
+Client 6 trained
+Epoch(t): 161 poison accuracy: 29.1 poison loss 3.7191774010658265
+| current_time | 0 = 1 163 != 162
+| queue.size | 5 <=  10
+| current_epoch 163 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 154 - 163 | queue size =  4
+Client 1 uploaded
+Epoch(t): 162 accuracy: 97.99 loss 0.06184410393238068
+Client 7 trained
+Epoch(t): 162 poison accuracy: 28.37 poison loss 3.8234904551506044
+| current_time | 0 = 1 164 != 163
+| queue.size | 5 <=  10
+| current_epoch 164 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 156 - 164 | queue size =  4
+Epoch(t): 163 accuracy: 97.79 loss 0.06952610973501577
+Client 6 uploaded
+Epoch(t): 163 poison accuracy: 23.08 poison loss 5.178177733421325
+| current_time | 0 = 1 165 != 164
+| queue.size | 5 <=  10
+| current_epoch 165 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 155 - 165 | queue size =  4
+Epoch(t): 164 accuracy: 97.78 loss 0.06873205840121954
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 164 poison accuracy: 22.85 poison loss 5.208820943832397
+| current_time | 0 = 1 166 != 165
+| queue.size | 5 <=  10
+| current_epoch 166 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 157 - 166 | queue size =  4
+Epoch(t): 165 accuracy: 97.84 loss 0.06682822735514492
+Client 9 trained
+Client 0 uploaded
+Epoch(t): 165 poison accuracy: 23.15 poison loss 5.096223044395447
+| current_time | 0 = 1 167 != 166
+| queue.size | 5 <=  10
+| current_epoch 167 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 158 - 167 | queue size =  4
+Epoch(t): 166 accuracy: 97.89 loss 0.06425014697946609
+Client 4 uploaded
+Client 3 trained
+Epoch(t): 166 poison accuracy: 23.05 poison loss 5.122697534561158
+| current_time | 0 = 1 168 != 167
+| queue.size | 5 <=  10
+| current_epoch 168 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 159 - 168 | queue size =  4
+Epoch(t): 167 accuracy: 97.84 loss 0.06353313230443745
+Epoch(t): 167 poison accuracy: 22.96 poison loss 5.1317166996002195
+| current_time | 0 = 1 169 != 168
+| queue.size | 4 <=  10
+| current_epoch 169 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Client 8 trained
+Updater received data from client 6 | staleness = 160 - 169 | queue size =  3
+Epoch(t): 168 accuracy: 97.9 loss 0.06282461690250785
+Client 3 uploaded
+Client 9 uploaded
+Client 5 trained
+Epoch(t): 168 poison accuracy: 22.64 poison loss 5.19298113822937
+| current_time | 0 = 1 170 != 169
+| queue.size | 5 <=  10
+| current_epoch 170 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 161 - 170 | queue size =  4
+Epoch(t): 169 accuracy: 97.94 loss 0.0620934045757167
+Client 2 trained
+Epoch(t): 169 poison accuracy: 22.28 poison loss 5.273877243995667
+| current_time | 0 = 1 171 != 170
+| queue.size | 4 <=  10
+| current_epoch 171 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 162 - 171 | queue size =  3
+Epoch(t): 170 accuracy: 98.0 loss 0.06151931867469102
+Client 5 uploaded
+Client 8 uploaded
+Client 1 trained
+Epoch(t): 170 poison accuracy: 26.01 poison loss 4.380714235305786
+| current_time | 0 = 1 172 != 171
+| queue.size | 5 <=  10
+| current_epoch 172 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 163 - 172 | queue size =  4
+Client 2 uploaded
+Epoch(t): 171 accuracy: 98.01 loss 0.061233030389994385
+Client 6 trained
+Epoch(t): 171 poison accuracy: 24.94 poison loss 4.537736392021179
+| current_time | 0 = 1 173 != 172
+| queue.size | 5 <=  10
+| current_epoch 173 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 165 - 173 | queue size =  4
+Client 1 uploaded
+Epoch(t): 172 accuracy: 97.88 loss 0.06775893864221871
+Client 7 trained
+Epoch(t): 172 poison accuracy: 22.7 poison loss 5.748658957481385
+| current_time | 0 = 1 174 != 173
+| queue.size | 5 <=  10
+| current_epoch 174 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 164 - 174 | queue size =  4
+Epoch(t): 173 accuracy: 97.84 loss 0.06672714736778289
+Client 6 uploaded
+Epoch(t): 173 poison accuracy: 22.71 poison loss 5.696755471229554
+| current_time | 0 = 1 175 != 174
+| queue.size | 5 <=  10
+| current_epoch 175 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 167 - 175 | queue size =  4
+Epoch(t): 174 accuracy: 97.72 loss 0.07077278730925173
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 174 poison accuracy: 22.38 poison loss 5.640324168205261
+| current_time | 0 = 1 176 != 175
+| queue.size | 5 <=  10
+| current_epoch 176 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 166 - 176 | queue size =  4
+Epoch(t): 175 accuracy: 97.8 loss 0.06922840253915638
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 175 poison accuracy: 22.38 poison loss 5.650696959495544
+| current_time | 0 = 1 177 != 176
+| queue.size | 5 <=  10
+| current_epoch 177 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 168 - 177 | queue size =  4
+Epoch(t): 176 accuracy: 97.83 loss 0.06683709611184895
+Client 4 uploaded
+Client 9 trained
+Epoch(t): 176 poison accuracy: 22.2 poison loss 5.739291501045227
+| current_time | 0 = 1 178 != 177
+| queue.size | 5 <=  10
+| current_epoch 178 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 169 - 178 | queue size =  4
+Epoch(t): 177 accuracy: 97.88 loss 0.06504119584336877
+Client 3 uploaded
+Epoch(t): 177 poison accuracy: 22.12 poison loss 5.740683221817017
+| current_time | 0 = 1 179 != 178
+| queue.size | 5 <=  10
+| current_epoch 179 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 170 - 179 | queue size =  4
+Client 5 trained
+Epoch(t): 178 accuracy: 97.95 loss 0.06370465500745923
+Client 8 trained
+Epoch(t): 178 poison accuracy: 21.86 poison loss 5.758315591812134
+| current_time | 0 = 1 180 != 179
+| queue.size | 4 <=  10
+| current_epoch 180 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 171 - 180 | queue size =  3
+Epoch(t): 179 accuracy: 98.04 loss 0.06210454935673624
+Client 9 uploaded
+Client 5 uploaded
+Client 2 trained
+Epoch(t): 179 poison accuracy: 21.97 poison loss 5.696770949363708
+| current_time | 0 = 1 181 != 180
+| queue.size | 5 <=  10
+| current_epoch 181 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 172 - 181 | queue size =  4
+Epoch(t): 180 accuracy: 98.07 loss 0.06129539634101093
+Client 1 trained
+Client 2 uploaded
+Epoch(t): 180 poison accuracy: 25.75 poison loss 4.710820865631104
+| current_time | 0 = 1 182 != 181
+| queue.size | 5 <=  10
+| current_epoch 182 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 173 - 182 | queue size =  4
+Epoch(t): 181 accuracy: 98.14 loss 0.06063678552396595
+Client 8 uploaded
+Client 6 trained
+Epoch(t): 181 poison accuracy: 25.07 poison loss 4.782883455753327
+| current_time | 0 = 1 183 != 182
+| queue.size | 5 <=  10
+| current_epoch 183 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 174 - 183 | queue size =  4
+Client 1 uploaded
+Epoch(t): 182 accuracy: 98.15 loss 0.060075556449592116
+Client 7 trained
+Epoch(t): 182 poison accuracy: 24.12 poison loss 5.014010300636292
+| current_time | 0 = 1 184 != 183
+| queue.size | 5 <=  10
+| current_epoch 184 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 175 - 184 | queue size =  4
+Epoch(t): 183 accuracy: 98.17 loss 0.059369404398603366
+Client 6 uploaded
+Epoch(t): 183 poison accuracy: 23.22 poison loss 5.197666583061218
+| current_time | 0 = 1 185 != 184
+| queue.size | 5 <=  10
+| current_epoch 185 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 176 - 185 | queue size =  4
+Epoch(t): 184 accuracy: 98.13 loss 0.05963858235627413
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 184 poison accuracy: 22.79 poison loss 5.341034212112427
+| current_time | 0 = 1 186 != 185
+| queue.size | 5 <=  10
+| current_epoch 186 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 178 - 186 | queue size =  4
+Epoch(t): 185 accuracy: 97.99 loss 0.06320186837459914
+Client 3 trained
+Client 0 uploaded
+Epoch(t): 185 poison accuracy: 21.11 poison loss 6.243249497413635
+| current_time | 0 = 1 187 != 186
+| queue.size | 5 <=  10
+| current_epoch 187 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 177 - 187 | queue size =  4
+Epoch(t): 186 accuracy: 97.99 loss 0.06253014646936209
+Client 4 uploaded
+Client 9 trained
+Epoch(t): 186 poison accuracy: 20.92 poison loss 6.259830589294434
+| current_time | 0 = 1 188 != 187
+| queue.size | 5 <=  10
+| current_epoch 188 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 179 - 188 | queue size =  4
+Epoch(t): 187 accuracy: 98.0 loss 0.06138532507698983
+Client 3 uploaded
+Epoch(t): 187 poison accuracy: 20.65 poison loss 6.293497414588928
+| current_time | 0 = 1 189 != 188
+| queue.size | 5 <=  10
+| current_epoch 189 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 180 - 189 | queue size =  4
+Client 5 trained
+Epoch(t): 188 accuracy: 98.05 loss 0.06036907870322466
+Client 2 trained
+Epoch(t): 188 poison accuracy: 20.31 poison loss 6.365574741363526
+| current_time | 0 = 1 190 != 189
+| queue.size | 4 <=  10
+| current_epoch 190 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 181 - 190 | queue size =  3
+Epoch(t): 189 accuracy: 98.06 loss 0.058817721449304375
+Client 9 uploaded
+Client 5 uploaded
+Client 8 trained
+Epoch(t): 189 poison accuracy: 20.25 poison loss 6.343356065750122
+| current_time | 0 = 1 191 != 190
+| queue.size | 5 <=  10
+| current_epoch 191 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 182 - 191 | queue size =  4
+Client 2 uploaded
+Epoch(t): 190 accuracy: 98.15 loss 0.057818300649523736
+Client 1 trained
+Epoch(t): 190 poison accuracy: 23.65 poison loss 5.3245247983932495
+| current_time | 0 = 1 192 != 191
+| queue.size | 5 <=  10
+| current_epoch 192 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 183 - 192 | queue size =  4
+Epoch(t): 191 accuracy: 98.19 loss 0.05674969879677519
+Client 6 trained
+Epoch(t): 191 poison accuracy: 22.98 poison loss 5.441329870223999
+| current_time | 0 = 1 193 != 192
+| queue.size | 4 <=  10
+| current_epoch 193 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 184 - 193 | queue size =  3
+Client 1 uploaded
+Epoch(t): 192 accuracy: 98.22 loss 0.056392092807218436
+Client 8 uploaded
+Client 7 trained
+Epoch(t): 192 poison accuracy: 22.84 poison loss 5.4745278692245485
+| current_time | 0 = 1 194 != 193
+| queue.size | 5 <=  10
+| current_epoch 194 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 185 - 194 | queue size =  4
+Epoch(t): 193 accuracy: 98.19 loss 0.05614449053653516
+Client 6 uploaded
+Epoch(t): 193 poison accuracy: 23.08 poison loss 5.410063042640686
+| current_time | 0 = 1 195 != 194
+| queue.size | 5 <=  10
+| current_epoch 195 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 186 - 195 | queue size =  4
+Epoch(t): 194 accuracy: 98.21 loss 0.05579071823041886
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 194 poison accuracy: 23.03 poison loss 5.435679469108582
+| current_time | 0 = 1 196 != 195
+| queue.size | 5 <=  10
+| current_epoch 196 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 187 - 196 | queue size =  4
+Epoch(t): 195 accuracy: 98.21 loss 0.05579971268773079
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 195 poison accuracy: 22.75 poison loss 5.622268137931823
+| current_time | 0 = 1 197 != 196
+| queue.size | 5 <=  10
+| current_epoch 197 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 189 - 197 | queue size =  4
+Epoch(t): 196 accuracy: 97.81 loss 0.07054868458770215
+Client 4 uploaded
+Client 9 trained
+Epoch(t): 196 poison accuracy: 19.52 poison loss 6.833050508499145
+| current_time | 0 = 1 198 != 197
+| queue.size | 5 <=  10
+| current_epoch 198 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 188 - 198 | queue size =  4
+Epoch(t): 197 accuracy: 97.86 loss 0.06899993083439768
+Client 3 uploaded
+Epoch(t): 197 poison accuracy: 19.4 poison loss 6.851967253684998
+| current_time | 0 = 1 199 != 198
+| queue.size | 5 <=  10
+| current_epoch 199 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 190 - 199 | queue size =  4
+Client 5 trained
+Epoch(t): 198 accuracy: 97.91 loss 0.06638774649240077
+Client 2 trained
+Epoch(t): 198 poison accuracy: 19.33 poison loss 6.843886280059815
+| current_time | 0 = 1 200 != 199
+| queue.size | 4 <=  10
+| current_epoch 200 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 191 - 200 | queue size =  3
+Epoch(t): 199 accuracy: 98.01 loss 0.06370272508822382
+Client 9 uploaded
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 199 poison accuracy: 19.59 poison loss 6.688090062141418
+| current_time | 0 = 1 201 != 200
+| queue.size | 5 <=  10
+| current_epoch 201 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 192 - 201 | queue size =  4
+Client 2 uploaded
+Epoch(t): 200 accuracy: 98.1 loss 0.0623612297186628
+Epoch(t): 200 poison accuracy: 22.65 poison loss 5.652201385498047
+| current_time | 0 = 1 202 != 201
+| queue.size | 5 <=  10
+| current_epoch 202 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 193 - 202 | queue size =  4
+Client 1 uploaded
+Epoch(t): 201 accuracy: 98.12 loss 0.06085385812912136
+Client 8 trained
+Client 6 trained
+Epoch(t): 201 poison accuracy: 22.14 poison loss 5.714467477798462
+| current_time | 0 = 1 203 != 202
+| queue.size | 5 <=  10
+| current_epoch 203 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 194 - 203 | queue size =  4
+Epoch(t): 202 accuracy: 98.16 loss 0.05896551623940468
+Client 7 trained
+Epoch(t): 202 poison accuracy: 21.88 poison loss 5.786458730697632
+| current_time | 0 = 1 204 != 203
+| queue.size | 4 <=  10
+| current_epoch 204 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 195 - 204 | queue size =  3
+Epoch(t): 203 accuracy: 98.25 loss 0.05822713673580438
+Epoch(t): 203 poison accuracy: 21.72 poison loss 5.820313143730163
+| current_time | 0 = 1 205 != 204
+| queue.size | 3 <=  10
+| current_epoch 205 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 196 - 205 | queue size =  2
+Client 8 uploaded
+Client 6 uploaded
+Epoch(t): 204 accuracy: 98.25 loss 0.05812410325044766
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 204 poison accuracy: 21.81 poison loss 5.8357524394989015
+| current_time | 0 = 1 206 != 205
+| queue.size | 5 <=  10
+| current_epoch 206 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 197 - 206 | queue size =  4
+Epoch(t): 205 accuracy: 98.21 loss 0.057271018414758144
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 205 poison accuracy: 21.34 poison loss 5.975895147323609
+| current_time | 0 = 1 207 != 206
+| queue.size | 5 <=  10
+| current_epoch 207 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 198 - 207 | queue size =  4
+Epoch(t): 206 accuracy: 98.23 loss 0.05773625881411135
+Client 4 uploaded
+Client 9 trained
+Epoch(t): 206 poison accuracy: 21.03 poison loss 6.1280238056182865
+| current_time | 0 = 1 208 != 207
+| queue.size | 5 <=  10
+| current_epoch 208 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 199 - 208 | queue size =  4
+Epoch(t): 207 accuracy: 98.25 loss 0.05685086977202445
+Client 3 uploaded
+Client 5 trained
+Epoch(t): 207 poison accuracy: 20.72 poison loss 6.2553954648971555
+| current_time | 0 = 1 209 != 208
+| queue.size | 5 <=  10
+| current_epoch 209 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 200 - 209 | queue size =  4
+Epoch(t): 208 accuracy: 98.25 loss 0.05636661219643429
+Client 2 trained
+Epoch(t): 208 poison accuracy: 20.54 poison loss 6.3311556577682495
+| current_time | 0 = 1 210 != 209
+| queue.size | 4 <=  10
+| current_epoch 210 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 201 - 210 | queue size =  3
+Epoch(t): 209 accuracy: 98.29 loss 0.05544845704454929
+Client 5 uploaded
+Client 9 uploaded
+Client 1 trained
+Client 2 uploaded
+Epoch(t): 209 poison accuracy: 20.13 poison loss 6.4317104578018185
+| current_time | 0 = 1 211 != 210
+| queue.size | 6 <=  10
+| current_epoch 211 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 202 - 211 | queue size =  5
+Epoch(t): 210 accuracy: 98.31 loss 0.055000695884227756
+Client 8 trained
+Epoch(t): 210 poison accuracy: 23.47 poison loss 5.355576586723328
+| current_time | 0 = 1 212 != 211
+| queue.size | 5 <=  10
+| current_epoch 212 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 203 - 212 | queue size =  4
+Client 1 uploaded
+Epoch(t): 211 accuracy: 98.33 loss 0.054603073765756564
+Client 6 trained
+Epoch(t): 211 poison accuracy: 23.05 poison loss 5.404960751533508
+| current_time | 0 = 1 213 != 212
+| queue.size | 5 <=  10
+| current_epoch 213 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 204 - 213 | queue size =  4
+Epoch(t): 212 accuracy: 98.32 loss 0.054056905889883634
+Client 7 trained
+Epoch(t): 212 poison accuracy: 22.66 poison loss 5.521826276779175
+| current_time | 0 = 1 214 != 213
+| queue.size | 4 <=  10
+| current_epoch 214 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 206 - 214 | queue size =  3
+Epoch(t): 213 accuracy: 98.05 loss 0.06327962588518858
+Client 8 uploaded
+Client 6 uploaded
+Epoch(t): 213 poison accuracy: 20.36 poison loss 6.814529123306275
+| current_time | 0 = 1 215 != 214
+| queue.size | 5 <=  10
+| current_epoch 215 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 205 - 215 | queue size =  4
+Epoch(t): 214 accuracy: 98.09 loss 0.062133031429257246
+Client 4 trained
+Client 7 uploaded
+Client 0 trained
+Epoch(t): 214 poison accuracy: 20.36 poison loss 6.79621199131012
+| current_time | 0 = 1 216 != 215
+| queue.size | 5 <=  10
+| current_epoch 216 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 207 - 216 | queue size =  4
+Epoch(t): 215 accuracy: 98.18 loss 0.06022191728232428
+Client 3 trained
+Client 0 uploaded
+Epoch(t): 215 poison accuracy: 20.21 poison loss 6.844999008178711
+| current_time | 0 = 1 217 != 216
+| queue.size | 5 <=  10
+| current_epoch 217 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 208 - 217 | queue size =  4
+Epoch(t): 216 accuracy: 98.17 loss 0.0592569881118834
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 216 poison accuracy: 20.31 poison loss 6.782319192886352
+| current_time | 0 = 1 218 != 217
+| queue.size | 5 <=  10
+| current_epoch 218 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 209 - 218 | queue size =  4
+Epoch(t): 217 accuracy: 98.2 loss 0.05805021606385708
+Client 3 uploaded
+Client 9 trained
+Epoch(t): 217 poison accuracy: 20.56 poison loss 6.716427893638611
+| current_time | 0 = 1 219 != 218
+| queue.size | 5 <=  10
+| current_epoch 219 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 210 - 219 | queue size =  4
+Epoch(t): 218 accuracy: 98.21 loss 0.056898106986191126
+Client 5 uploaded
+Client 2 trained
+Epoch(t): 218 poison accuracy: 20.18 poison loss 6.788337206840515
+| current_time | 0 = 1 220 != 219
+| queue.size | 5 <=  10
+| current_epoch 220 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 211 - 220 | queue size =  4
+Epoch(t): 219 accuracy: 98.25 loss 0.05583525649271905
+Client 1 trained
+Epoch(t): 219 poison accuracy: 19.93 poison loss 6.838895082473755
+| current_time | 0 = 1 221 != 220
+| queue.size | 4 <=  10
+| current_epoch 221 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 212 - 221 | queue size =  3
+Client 2 uploaded
+Epoch(t): 220 accuracy: 98.28 loss 0.054843424493446945
+Client 9 uploaded
+Epoch(t): 220 poison accuracy: 23.42 poison loss 5.613887104988098
+| current_time | 0 = 1 222 != 221
+| queue.size | 5 <=  10
+| current_epoch 222 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 213 - 222 | queue size =  4
+Client 1 uploaded
+Epoch(t): 221 accuracy: 98.25 loss 0.0541088922531344
+Client 8 trained
+Client 6 trained
+Epoch(t): 221 poison accuracy: 22.82 poison loss 5.710218598842621
+| current_time | 0 = 1 223 != 222
+| queue.size | 5 <=  10
+| current_epoch 223 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 214 - 223 | queue size =  4
+Epoch(t): 222 accuracy: 98.27 loss 0.053682959923753513
+Client 7 trained
+Epoch(t): 222 poison accuracy: 22.66 poison loss 5.736983113288879
+| current_time | 0 = 1 224 != 223
+| queue.size | 4 <=  10
+| current_epoch 224 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 215 - 224 | queue size =  3
+Epoch(t): 223 accuracy: 98.24 loss 0.054326750617474315
+Epoch(t): 223 poison accuracy: 22.48 poison loss 5.853247771263122
+| current_time | 0 = 1 225 != 224
+| queue.size | 3 <=  10
+| current_epoch 225 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 217 - 225 | queue size =  2
+Client 6 uploaded
+Client 8 uploaded
+Epoch(t): 224 accuracy: 98.22 loss 0.055434173713438215
+Client 7 uploaded
+Client 4 trained
+Client 0 trained
+Epoch(t): 224 poison accuracy: 20.03 poison loss 7.380574870109558
+| current_time | 0 = 1 226 != 225
+| queue.size | 5 <=  10
+| current_epoch 226 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 216 - 226 | queue size =  4
+Epoch(t): 225 accuracy: 98.21 loss 0.05498571437783539
+Client 3 trained
+Client 0 uploaded
+Epoch(t): 225 poison accuracy: 19.94 poison loss 7.367945642471313
+| current_time | 0 = 1 227 != 226
+| queue.size | 5 <=  10
+| current_epoch 227 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 218 - 227 | queue size =  4
+Epoch(t): 226 accuracy: 98.24 loss 0.05446189008420333
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 226 poison accuracy: 19.75 poison loss 7.3707923460006715
+| current_time | 0 = 1 228 != 227
+| queue.size | 5 <=  10
+| current_epoch 228 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 220 - 228 | queue size =  4
+Epoch(t): 227 accuracy: 98.04 loss 0.06445528510492295
+Client 3 uploaded
+Epoch(t): 227 poison accuracy: 18.03 poison loss 7.683884768486023
+| current_time | 0 = 1 229 != 228
+| queue.size | 5 <=  10
+| current_epoch 229 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Client 2 trained
+Updater received data from client 8 | staleness = 219 - 229 | queue size =  4
+Epoch(t): 228 accuracy: 98.08 loss 0.06284407704602928
+Client 5 uploaded
+Client 9 trained
+Epoch(t): 228 poison accuracy: 17.92 poison loss 7.690326380729675
+| current_time | 0 = 1 230 != 229
+| queue.size | 5 <=  10
+| current_epoch 230 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 221 - 230 | queue size =  4
+Client 2 uploaded
+Epoch(t): 229 accuracy: 98.14 loss 0.06049453290645033
+Client 1 trained
+Epoch(t): 229 poison accuracy: 17.97 poison loss 7.589394850730896
+| current_time | 0 = 1 231 != 230
+| queue.size | 5 <=  10
+| current_epoch 231 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 222 - 231 | queue size =  4
+Epoch(t): 230 accuracy: 98.18 loss 0.05892562650609762
+Client 6 trained
+Epoch(t): 230 poison accuracy: 20.75 poison loss 6.361086893081665
+| current_time | 0 = 1 232 != 231
+| queue.size | 4 <=  10
+| current_epoch 232 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 223 - 232 | queue size =  3
+Client 1 uploaded
+Epoch(t): 231 accuracy: 98.2 loss 0.05754808613099158
+Client 9 uploaded
+Epoch(t): 231 poison accuracy: 20.36 poison loss 6.445434737205505
+| current_time | 0 = 1 233 != 232
+| queue.size | 5 <=  10
+| current_epoch 233 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 224 - 233 | queue size =  4
+Client 8 trained
+Epoch(t): 232 accuracy: 98.23 loss 0.056299813012592494
+Client 7 trained
+Epoch(t): 232 poison accuracy: 20.35 poison loss 6.439250459671021
+| current_time | 0 = 1 234 != 233
+| queue.size | 4 <=  10
+| current_epoch 234 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 225 - 234 | queue size =  3
+Client 6 uploaded
+Epoch(t): 233 accuracy: 98.23 loss 0.05567237398121506
+Epoch(t): 233 poison accuracy: 20.3 poison loss 6.468263883590698
+| current_time | 0 = 1 235 != 234
+| queue.size | 4 <=  10
+| current_epoch 235 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 226 - 235 | queue size =  3
+Epoch(t): 234 accuracy: 98.25 loss 0.05500844965921715
+Client 4 trained
+Client 7 uploaded
+Client 8 uploaded
+Client 0 trained
+Epoch(t): 234 poison accuracy: 20.17 poison loss 6.621435227394104
+| current_time | 0 = 1 236 != 235
+| queue.size | 5 <=  10
+| current_epoch 236 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 228 - 236 | queue size =  4
+Epoch(t): 235 accuracy: 98.0 loss 0.06562679309863598
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 235 poison accuracy: 19.16 poison loss 7.513259329795837
+| current_time | 0 = 1 237 != 236
+| queue.size | 5 <=  10
+| current_epoch 237 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 227 - 237 | queue size =  4
+Epoch(t): 236 accuracy: 97.99 loss 0.0646030905470252
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 236 poison accuracy: 19.15 poison loss 7.505739784240722
+| current_time | 0 = 1 238 != 237
+| queue.size | 5 <=  10
+| current_epoch 238 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 229 - 238 | queue size =  4
+Epoch(t): 237 accuracy: 98.01 loss 0.0627368404949084
+Client 3 uploaded
+Epoch(t): 237 poison accuracy: 18.76 poison loss 7.64386248588562
+| current_time | 0 = 1 239 != 238
+| queue.size | 5 <=  10
+| current_epoch 239 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Client 2 trained
+Updater received data from client 7 | staleness = 231 - 239 | queue size =  4
+Epoch(t): 238 accuracy: 97.98 loss 0.06285016705049201
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 238 poison accuracy: 21.31 poison loss 6.427433013916016
+| current_time | 0 = 1 240 != 239
+| queue.size | 5 <=  10
+| current_epoch 240 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 230 - 240 | queue size =  4
+Client 2 uploaded
+Epoch(t): 239 accuracy: 98.04 loss 0.06134489465039224
+Client 9 trained
+Epoch(t): 239 poison accuracy: 21.12 poison loss 6.522824659347534
+| current_time | 0 = 1 241 != 240
+| queue.size | 5 <=  10
+| current_epoch 241 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 232 - 241 | queue size =  4
+Client 1 uploaded
+Epoch(t): 240 accuracy: 98.09 loss 0.05869812651537359
+Client 6 trained
+Epoch(t): 240 poison accuracy: 24.33 poison loss 5.445756292343139
+| current_time | 0 = 1 242 != 241
+| queue.size | 5 <=  10
+| current_epoch 242 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 233 - 242 | queue size =  4
+Epoch(t): 241 accuracy: 98.21 loss 0.05653588531538844
+Client 7 trained
+Epoch(t): 241 poison accuracy: 23.36 poison loss 5.654664306640625
+| current_time | 0 = 1 243 != 242
+| queue.size | 4 <=  10
+| current_epoch 243 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 234 - 243 | queue size =  3
+Epoch(t): 242 accuracy: 98.26 loss 0.05495715885423124
+Client 8 trained
+Client 6 uploaded
+Client 9 uploaded
+Epoch(t): 242 poison accuracy: 22.71 poison loss 5.826912307739258
+| current_time | 0 = 1 244 != 243
+| queue.size | 5 <=  10
+| current_epoch 244 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 235 - 244 | queue size =  4
+Epoch(t): 243 accuracy: 98.28 loss 0.054181937193498016
+Client 7 uploaded
+Epoch(t): 243 poison accuracy: 22.24 poison loss 5.9594958209991455
+| current_time | 0 = 1 245 != 244
+| queue.size | 5 <=  10
+| current_epoch 245 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 236 - 245 | queue size =  4
+Epoch(t): 244 accuracy: 98.25 loss 0.053082226272672416
+Client 4 trained
+Client 0 trained
+Epoch(t): 244 poison accuracy: 21.84 poison loss 6.126582040786743
+| current_time | 0 = 1 246 != 245
+| queue.size | 4 <=  10
+| current_epoch 246 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 237 - 246 | queue size =  3
+Epoch(t): 245 accuracy: 98.28 loss 0.05255565291154198
+Client 8 uploaded
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 245 poison accuracy: 21.49 poison loss 6.259474668502808
+| current_time | 0 = 1 247 != 246
+| queue.size | 5 <=  10
+| current_epoch 247 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 239 - 247 | queue size =  4
+Epoch(t): 246 accuracy: 98.08 loss 0.06262014493229799
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 246 poison accuracy: 17.57 poison loss 8.487613906860352
+| current_time | 0 = 1 248 != 247
+| queue.size | 5 <=  10
+| current_epoch 248 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 238 - 248 | queue size =  4
+Epoch(t): 247 accuracy: 98.11 loss 0.06168974173720926
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 247 poison accuracy: 17.47 poison loss 8.492197437286377
+| current_time | 0 = 1 249 != 248
+| queue.size | 5 <=  10
+| current_epoch 249 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 240 - 249 | queue size =  4
+Epoch(t): 248 accuracy: 98.18 loss 0.05914322841679678
+Client 5 uploaded
+Epoch(t): 248 poison accuracy: 17.31 poison loss 8.611753149032593
+| current_time | 0 = 1 250 != 249
+| queue.size | 5 <=  10
+| current_epoch 250 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 241 - 250 | queue size =  4
+Client 1 trained
+Client 2 uploaded
+Epoch(t): 249 accuracy: 98.28 loss 0.056870808431413025
+Client 6 trained
+Epoch(t): 249 poison accuracy: 17.15 poison loss 8.653266949653625
+| current_time | 0 = 1 251 != 250
+| queue.size | 5 <=  10
+| current_epoch 251 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 242 - 251 | queue size =  4
+Epoch(t): 250 accuracy: 98.28 loss 0.055119857843965295
+Client 1 uploaded
+Epoch(t): 250 poison accuracy: 19.09 poison loss 7.3159721326828
+| current_time | 0 = 1 252 != 251
+| queue.size | 5 <=  10
+| current_epoch 252 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 243 - 252 | queue size =  4
+Client 9 trained
+Epoch(t): 251 accuracy: 98.31 loss 0.05411025712150149
+Client 7 trained
+Epoch(t): 251 poison accuracy: 18.93 poison loss 7.3283739137649535
+| current_time | 0 = 1 253 != 252
+| queue.size | 4 <=  10
+| current_epoch 253 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 244 - 253 | queue size =  3
+Client 6 uploaded
+Epoch(t): 252 accuracy: 98.38 loss 0.05287815526360646
+Client 8 trained
+Epoch(t): 252 poison accuracy: 18.95 poison loss 7.328332180976868
+| current_time | 0 = 1 254 != 253
+| queue.size | 4 <=  10
+| current_epoch 254 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 245 - 254 | queue size =  3
+Epoch(t): 253 accuracy: 98.46 loss 0.05194662081892602
+Client 9 uploaded
+Client 7 uploaded
+Epoch(t): 253 poison accuracy: 18.97 poison loss 7.338740782737732
+| current_time | 0 = 1 255 != 254
+| queue.size | 5 <=  10
+| current_epoch 255 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 246 - 255 | queue size =  4
+Epoch(t): 254 accuracy: 98.43 loss 0.05139418612117879
+Client 4 trained
+Client 0 trained
+Epoch(t): 254 poison accuracy: 18.97 poison loss 7.422502913475037
+| current_time | 0 = 1 256 != 255
+| queue.size | 4 <=  10
+| current_epoch 256 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 247 - 256 | queue size =  3
+Epoch(t): 255 accuracy: 98.44 loss 0.05092401348752901
+Client 8 uploaded
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 255 poison accuracy: 18.94 poison loss 7.42421875
+| current_time | 0 = 1 257 != 256
+| queue.size | 5 <=  10
+| current_epoch 257 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 248 - 257 | queue size =  4
+Epoch(t): 256 accuracy: 98.43 loss 0.051485823357943446
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 256 poison accuracy: 18.77 poison loss 7.608310799598694
+| current_time | 0 = 1 258 != 257
+| queue.size | 5 <=  10
+| current_epoch 258 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 249 - 258 | queue size =  4
+Epoch(t): 257 accuracy: 98.47 loss 0.05142998070921749
+Client 3 uploaded
+Epoch(t): 257 poison accuracy: 18.67 poison loss 7.661396875381469
+| current_time | 0 = 1 259 != 258
+| queue.size | 5 <=  10
+| current_epoch 259 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 250 - 259 | queue size =  4
+Client 2 trained
+Epoch(t): 258 accuracy: 98.46 loss 0.05076594005338848
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 258 poison accuracy: 18.6 poison loss 7.6670286655426025
+| current_time | 0 = 1 260 != 259
+| queue.size | 5 <=  10
+| current_epoch 260 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 251 - 260 | queue size =  4
+Client 2 uploaded
+Epoch(t): 259 accuracy: 98.46 loss 0.050204426983837036
+Client 6 trained
+Epoch(t): 259 poison accuracy: 18.43 poison loss 7.755988311767578
+| current_time | 0 = 1 261 != 260
+| queue.size | 5 <=  10
+| current_epoch 261 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 252 - 261 | queue size =  4
+Epoch(t): 260 accuracy: 98.49 loss 0.04976063017966226
+Client 1 uploaded
+Epoch(t): 260 poison accuracy: 20.99 poison loss 6.480592150688171
+| current_time | 0 = 1 262 != 261
+| queue.size | 5 <=  10
+| current_epoch 262 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 253 - 262 | queue size =  4
+Client 9 trained
+Epoch(t): 261 accuracy: 98.49 loss 0.04953919188817963
+Client 7 trained
+Epoch(t): 261 poison accuracy: 20.58 poison loss 6.583007469177246
+| current_time | 0 = 1 263 != 262
+| queue.size | 4 <=  10
+| current_epoch 263 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 254 - 263 | queue size =  3
+Client 6 uploaded
+Epoch(t): 262 accuracy: 98.49 loss 0.04946370757650584
+Epoch(t): 262 poison accuracy: 20.77 poison loss 6.5484671926498415
+| current_time | 0 = 1 264 != 263
+| queue.size | 4 <=  10
+| current_epoch 264 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 255 - 264 | queue size =  3
+Client 8 trained
+Epoch(t): 263 accuracy: 98.48 loss 0.04931885340018198
+Client 7 uploaded
+Client 9 uploaded
+Epoch(t): 263 poison accuracy: 20.79 poison loss 6.572798480987549
+| current_time | 0 = 1 265 != 264
+| queue.size | 5 <=  10
+| current_epoch 265 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 256 - 265 | queue size =  4
+Epoch(t): 264 accuracy: 98.46 loss 0.04893215586896986
+Client 4 trained
+Client 0 trained
+Epoch(t): 264 poison accuracy: 20.46 poison loss 6.76221697807312
+| current_time | 0 = 1 266 != 265
+| queue.size | 4 <=  10
+| current_epoch 266 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 257 - 266 | queue size =  3
+Epoch(t): 265 accuracy: 98.49 loss 0.04893987717106938
+Client 8 uploaded
+Client 0 uploaded
+Client 3 trained
+Epoch(t): 265 poison accuracy: 20.36 poison loss 6.837558674812317
+| current_time | 0 = 1 267 != 266
+| queue.size | 5 <=  10
+| current_epoch 267 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 258 - 267 | queue size =  4
+Epoch(t): 266 accuracy: 98.46 loss 0.04918693102663383
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 266 poison accuracy: 20.03 poison loss 6.990384593009948
+| current_time | 0 = 1 268 != 267
+| queue.size | 5 <=  10
+| current_epoch 268 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 260 - 268 | queue size =  4
+Epoch(t): 267 accuracy: 98.18 loss 0.057953017854597416
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 267 poison accuracy: 22.84 poison loss 6.356106057167053
+| current_time | 0 = 1 269 != 268
+| queue.size | 5 <=  10
+| current_epoch 269 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 259 - 269 | queue size =  4
+Epoch(t): 268 accuracy: 98.19 loss 0.05688302188646048
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 268 poison accuracy: 22.63 poison loss 6.414650211334228
+| current_time | 0 = 1 270 != 269
+| queue.size | 5 <=  10
+| current_epoch 270 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 261 - 270 | queue size =  4
+Client 2 uploaded
+Epoch(t): 269 accuracy: 98.23 loss 0.05485143523197621
+Client 6 trained
+Epoch(t): 269 poison accuracy: 22.03 poison loss 6.598734283447266
+| current_time | 0 = 1 271 != 270
+| queue.size | 5 <=  10
+| current_epoch 271 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 262 - 271 | queue size =  4
+Epoch(t): 270 accuracy: 98.27 loss 0.053371848189271986
+Client 1 uploaded
+Client 7 trained
+Epoch(t): 270 poison accuracy: 25.01 poison loss 5.527880072593689
+| current_time | 0 = 1 272 != 271
+| queue.size | 5 <=  10
+| current_epoch 272 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 263 - 272 | queue size =  4
+Epoch(t): 271 accuracy: 98.33 loss 0.05195306536741555
+Client 9 trained
+Epoch(t): 271 poison accuracy: 24.29 poison loss 5.666675839424133
+| current_time | 0 = 1 273 != 272
+| queue.size | 4 <=  10
+| current_epoch 273 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 264 - 273 | queue size =  3
+Client 6 uploaded
+Epoch(t): 272 accuracy: 98.4 loss 0.05060798280872405
+Client 8 trained
+Epoch(t): 272 poison accuracy: 23.67 poison loss 5.836303949356079
+| current_time | 0 = 1 274 != 273
+| queue.size | 4 <=  10
+| current_epoch 274 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 265 - 274 | queue size =  3
+Client 7 uploaded
+Epoch(t): 273 accuracy: 98.4 loss 0.05006046156282537
+Epoch(t): 273 poison accuracy: 22.9 poison loss 5.991848330497742
+| current_time | 0 = 1 275 != 274
+| queue.size | 4 <=  10
+| current_epoch 275 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 266 - 275 | queue size =  3
+Epoch(t): 274 accuracy: 98.37 loss 0.04947724075289443
+Client 4 trained
+Client 9 uploaded
+Client 0 trained
+Epoch(t): 274 poison accuracy: 22.38 poison loss 6.181235933303833
+| current_time | 0 = 1 276 != 275
+| queue.size | 4 <=  10
+| current_epoch 276 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 267 - 276 | queue size =  3
+Epoch(t): 275 accuracy: 98.41 loss 0.049184929472394286
+Client 0 uploaded
+Client 8 uploaded
+Client 3 trained
+Epoch(t): 275 poison accuracy: 22.24 poison loss 6.266671104431152
+| current_time | 0 = 1 277 != 276
+| queue.size | 5 <=  10
+| current_epoch 277 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 268 - 277 | queue size =  4
+Epoch(t): 276 accuracy: 98.44 loss 0.049060293084476146
+Client 4 uploaded
+Client 5 trained
+Epoch(t): 276 poison accuracy: 22.02 poison loss 6.370613422393799
+| current_time | 0 = 1 278 != 277
+| queue.size | 5 <=  10
+| current_epoch 278 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 269 - 278 | queue size =  4
+Epoch(t): 277 accuracy: 98.42 loss 0.049402528390055524
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 277 poison accuracy: 21.43 poison loss 6.584507994651794
+| current_time | 0 = 1 279 != 278
+| queue.size | 5 <=  10
+| current_epoch 279 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 270 - 279 | queue size =  4
+Epoch(t): 278 accuracy: 98.38 loss 0.049254427333362404
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 278 poison accuracy: 20.96 poison loss 6.746569519042969
+| current_time | 0 = 1 280 != 279
+| queue.size | 5 <=  10
+| current_epoch 280 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 272 - 280 | queue size =  4
+Client 2 uploaded
+Epoch(t): 279 accuracy: 97.96 loss 0.061819369941949844
+Client 6 trained
+Epoch(t): 279 poison accuracy: 99.68 poison loss 0.007308823531202506
+| current_time | 0 = 1 281 != 280
+| queue.size | 5 <=  10
+| current_epoch 281 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 271 - 281 | queue size =  4
+Epoch(t): 280 accuracy: 98.03 loss 0.059316778099164365
+Client 1 uploaded
+Client 7 trained
+Epoch(t): 280 poison accuracy: 99.51 poison loss 0.013644876644248143
+| current_time | 0 = 1 282 != 281
+| queue.size | 5 <=  10
+| current_epoch 282 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 273 - 282 | queue size =  4
+Epoch(t): 281 accuracy: 98.14 loss 0.055900870831683276
+Client 9 trained
+Epoch(t): 281 poison accuracy: 98.73 poison loss 0.034460874202195554
+| current_time | 0 = 1 283 != 282
+| queue.size | 4 <=  10
+| current_epoch 283 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 274 - 283 | queue size =  3
+Client 6 uploaded
+Epoch(t): 282 accuracy: 98.29 loss 0.053327127757947894
+Client 7 uploaded
+Epoch(t): 282 poison accuracy: 96.83 poison loss 0.08728149840608239
+| current_time | 0 = 1 284 != 283
+| queue.size | 5 <=  10
+| current_epoch 284 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 275 - 284 | queue size =  4
+Epoch(t): 283 accuracy: 98.36 loss 0.05160771732218564
+Client 8 trained
+Client 0 trained
+Epoch(t): 283 poison accuracy: 93.47 poison loss 0.1792544111981988
+| current_time | 0 = 1 285 != 284
+| queue.size | 4 <=  10
+| current_epoch 285 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 276 - 285 | queue size =  3
+Epoch(t): 284 accuracy: 98.45 loss 0.05037808336317539
+Client 9 uploaded
+Client 0 uploaded
+Client 4 trained
+Epoch(t): 284 poison accuracy: 87.3 poison loss 0.3498943462967873
+| current_time | 0 = 1 286 != 285
+| queue.size | 5 <=  10
+| current_epoch 286 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 277 - 286 | queue size =  4
+Epoch(t): 285 accuracy: 98.44 loss 0.049655009943526236
+Client 3 trained
+Epoch(t): 285 poison accuracy: 81.09 poison loss 0.5484142707288265
+| current_time | 0 = 1 287 != 286
+| queue.size | 4 <=  10
+| current_epoch 287 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 278 - 287 | queue size =  3
+Epoch(t): 286 accuracy: 98.46 loss 0.04888694589259103
+Client 4 uploaded
+Client 8 uploaded
+Epoch(t): 286 poison accuracy: 73.54 poison loss 0.8416367429494858
+| current_time | 0 = 1 288 != 287
+| queue.size | 5 <=  10
+| current_epoch 288 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Client 5 trained
+Updater received data from client 7 | staleness = 279 - 288 | queue size =  4
+Epoch(t): 287 accuracy: 98.48 loss 0.04848342278273776
+Client 3 uploaded
+Client 2 trained
+Epoch(t): 287 poison accuracy: 66.32 poison loss 1.1536370253562926
+| current_time | 0 = 1 289 != 288
+| queue.size | 5 <=  10
+| current_epoch 289 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 280 - 289 | queue size =  4
+Epoch(t): 288 accuracy: 98.48 loss 0.0482547755795531
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 288 poison accuracy: 60.09 poison loss 1.5107969677448272
+| current_time | 0 = 1 290 != 289
+| queue.size | 5 <=  10
+| current_epoch 290 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 281 - 290 | queue size =  4
+Client 2 uploaded
+Epoch(t): 289 accuracy: 98.46 loss 0.048345988710643724
+Client 6 trained
+Epoch(t): 289 poison accuracy: 66.24 poison loss 1.1618716824054718
+| current_time | 0 = 1 291 != 290
+| queue.size | 5 <=  10
+| current_epoch 291 |. Begin client select
+
+SchedulerThread select( 1 clients):
+0 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 4 | staleness = 283 - 291 | queue size =  4
+Epoch(t): 290 accuracy: 98.15 loss 0.058640790460631254
+Client 1 uploaded
+Client 7 trained
+Epoch(t): 290 poison accuracy: 57.41 poison loss 1.6472413861751556
+| current_time | 0 = 1 292 != 291
+| queue.size | 5 <=  10
+| current_epoch 292 |. Begin client select
+
+SchedulerThread select( 1 clients):
+4 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 8 | staleness = 282 - 292 | queue size =  4
+Epoch(t): 291 accuracy: 98.18 loss 0.0571990476641804
+Client 9 trained
+Epoch(t): 291 poison accuracy: 57.65 poison loss 1.624537957906723
+| current_time | 0 = 1 293 != 292
+| queue.size | 4 <=  10
+| current_epoch 293 |. Begin client select
+
+SchedulerThread select( 1 clients):
+8 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 3 | staleness = 284 - 293 | queue size =  3
+Client 6 uploaded
+Epoch(t): 292 accuracy: 98.36 loss 0.05436116068856791
+Client 7 uploaded
+Epoch(t): 292 poison accuracy: 57.21 poison loss 1.6483336997032165
+| current_time | 0 = 1 294 != 293
+| queue.size | 5 <=  10
+| current_epoch 294 |. Begin client select
+
+SchedulerThread select( 1 clients):
+3 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 5 | staleness = 285 - 294 | queue size =  4
+Epoch(t): 293 accuracy: 98.39 loss 0.05262212860397995
+Client 4 trained
+Client 0 trained
+Epoch(t): 293 poison accuracy: 56.26 poison loss 1.7100611996650696
+| current_time | 0 = 1 295 != 294
+| queue.size | 4 <=  10
+| current_epoch 295 |. Begin client select
+
+SchedulerThread select( 1 clients):
+5 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 2 | staleness = 286 - 295 | queue size =  3
+Client 9 uploaded
+Epoch(t): 294 accuracy: 98.44 loss 0.05058048662729561
+Client 0 uploaded
+Client 8 trained
+Epoch(t): 294 poison accuracy: 54.76 poison loss 1.834345211982727
+| current_time | 0 = 1 296 != 295
+| queue.size | 5 <=  10
+| current_epoch 296 |. Begin client select
+
+SchedulerThread select( 1 clients):
+2 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 1 | staleness = 287 - 296 | queue size =  4
+Epoch(t): 295 accuracy: 98.44 loss 0.04962351864669472
+Client 4 uploaded
+Client 3 trained
+Epoch(t): 295 poison accuracy: 54.46 poison loss 1.8581825983524323
+| current_time | 0 = 1 297 != 296
+| queue.size | 5 <=  10
+| current_epoch 297 |. Begin client select
+
+SchedulerThread select( 1 clients):
+1 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 6 | staleness = 288 - 297 | queue size =  4
+Epoch(t): 296 accuracy: 98.5 loss 0.048697126654442396
+Epoch(t): 296 poison accuracy: 52.85 poison loss 2.0003321290016176
+| current_time | 0 = 1 298 != 297
+| queue.size | 4 <=  10
+| current_epoch 298 |. Begin client select
+
+SchedulerThread select( 1 clients):
+6 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 7 | staleness = 289 - 298 | queue size =  3
+Client 5 trained
+Epoch(t): 297 accuracy: 98.51 loss 0.04821636922424659
+Client 3 uploaded
+Client 8 uploaded
+Client 2 trained
+Epoch(t): 297 poison accuracy: 51.05 poison loss 2.1296301352977753
+| current_time | 0 = 1 299 != 298
+| queue.size | 5 <=  10
+| current_epoch 299 |. Begin client select
+
+SchedulerThread select( 1 clients):
+7 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 9 | staleness = 290 - 299 | queue size =  4
+Epoch(t): 298 accuracy: 98.49 loss 0.04794777161907405
+Client 5 uploaded
+Client 1 trained
+Epoch(t): 298 poison accuracy: 49.53 poison loss 2.237011276483536
+| current_time | 0 = 1 300 != 299
+| queue.size | 5 <=  10
+| current_epoch 300 |. Begin client select
+
+SchedulerThread select( 1 clients):
+9 | 
+-----------------------------------------------------------------Schedule complete
+Updater received data from client 0 | staleness = 291 - 300 | queue size =  4
+Client 2 uploaded
+Epoch(t): 299 accuracy: 98.49 loss 0.047440714426338675
+Client 6 trained
+Epoch(t): 299 poison accuracy: 56.77 poison loss 1.7126573634147644
+Average delay = 8.85
+scheduler_thread joined
+updater_thread joined
+data_getter_thread joined
+
+Un-used client weights: 5
+End!
+Client 1 uploaded
+Client 7 trained
+Client 9 trained
+Client 6 uploaded
+Client 7 uploaded
+Client 9 uploaded
+Time used:
+0:09:43.211098
+9.716666666666667 min
+0.16194444444444445 h
+
+====================
+开始缓存清理
+缓存清理完成
+====================
