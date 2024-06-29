@@ -8,19 +8,20 @@ class AsyncUpdater(SyncUpdater):
         # number of updates per aggregation.
         self.num_generator = NumGeneratorFactory(self.config['num_generator']).create_num_generator()
         self.nums = self.num_generator.init()
+        self.global_var['clients_list'] = []
 
     def get_update_list(self):
         self.nums = self.num_generator.get_num()
         self.queue_manager.receive(self.nums)
         update_list = []
-        clients_list = []
+        # clients_list = []
         for i in range(self.nums):
             update_list.append(self.queue_manager.get())
             c_id = update_list[i]["client_id"]
-            clients_list.append(c_id)
+            # clients_list.append(c_id)
             time_stamp = update_list[i]["time_stamp"]
             self.sum_delay += (self.current_time.get_time() - time_stamp)
             print("Updater received data from client", c_id, "| staleness =", time_stamp, "-",
                     self.current_time.get_time(), "| queue size = ", self.queue_manager.size())
-            self.global_var['clients_list'] = clients_list
+            self.global_var['clients_list'].append(c_id)
         return update_list
