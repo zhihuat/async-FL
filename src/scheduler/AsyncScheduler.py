@@ -20,7 +20,7 @@ class AsyncSchedulerWithOneUpdate(SyncScheduler):
                 if current_time == 1:
                     selected_client =  self.client_select()
                 else:
-                    selected_client = self.global_var['clients_list']
+                    selected_client = [self.global_var['clients_list'][-1]] ## choose the latest client
                 self.notify_client(selected_client, current_time, schedule_time)
                 self.schedule_t.time_add()
             else:

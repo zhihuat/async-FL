@@ -25,4 +25,5 @@ class TransformForCIFARFactory:
 class ToTensorFactory:
     @staticmethod
     def createToTensor():
-        return transforms.ToTensor()
+        return transforms.Compose([
+            transforms.ToTensor()])

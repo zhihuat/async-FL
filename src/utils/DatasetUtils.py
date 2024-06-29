@@ -5,11 +5,18 @@ import glob
 import os
 import shutil
 from collections import Counter
+import torch
+import numpy as np
+from collections import Counter
+from sklearn.preprocessing import StandardScaler
+from torchvision.transforms import Compose, ToTensor, RandomHorizontalFlip, ToPILImage, Resize
 
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from torch.utils.data import Dataset
-
+import random
+from utils import ModuleFindTool
+import copy
 
 class CustomDataset(Dataset):
     def __init__(self, data, targets):
@@ -60,6 +67,64 @@ class FLDataset(Dataset):
 
         if self.target_transform is not None:
             label = self.target_transform(label)
+        return image, label
+    
+class PoisonFLDataset(Dataset):
+    def __init__(self, trigger_config, dataset, idxs, transform=None, target_transform=None):
+        self.trigger_config = trigger_config
+        self.dataset = dataset
+        self.idxs = idxs
+        self.transform = transform
+        self.target_transform = target_transform
+        
+        
+        pattern = torch.zeros((28, 28), dtype=torch.float32)
+        pattern[-3:, -3:] = 1.0
+        weight = torch.zeros((28, 28), dtype=torch.float32)
+        weight[-3:, -3:] = 1.0
+        trigger_class = ModuleFindTool.find_class_by_path(self.trigger_config["image_path"])
+        trigger_target_class = ModuleFindTool.find_class_by_path(self.trigger_config["target_path"])
+
+        # Thanks to BackdoorBox
+        total_num = len(self.idxs)
+        poisoned_num = int(total_num * self.trigger_config["poisoned_rate"])
+        assert poisoned_num >= 0, 'poisoned_num should greater than or equal to zero.'
+        tmp_list = list(range(total_num))
+        random.shuffle(tmp_list)
+        self.poisoned_set = frozenset(tmp_list[:poisoned_num])
+        
+        # Add trigger to images
+        if self.transform is None:
+            self.poisoned_transform = Compose([])
+        else:
+            self.poisoned_transform = copy.deepcopy(self.transform)
+        self.poisoned_transform.transforms.insert(self.trigger_config["poisoned_transform_index"], 
+                                                  trigger_class(pattern, weight))
+
+        # Modify labels
+        y_target = int(self.trigger_config["target"])
+        if self.target_transform is None:
+            self.poisoned_target_transform = Compose([])
+        else:
+            self.poisoned_target_transform = copy.deepcopy(self.target_transform)
+        self.poisoned_target_transform.transforms.insert(self.trigger_config["poisoned_target_transform_index"],
+                                                         trigger_target_class(y_target))
+
+    def __len__(self):
+        return len(self.idxs)
+
+    def __getitem__(self, item):
+        image, label = self.dataset[self.idxs[item]]
+        
+        if item in self.poisoned_set:
+            image = self.poisoned_transform(image)
+            label = self.poisoned_target_transform(label)
+        else:
+            if self.transform is not None:
+                image = self.transform(image)
+
+            if self.target_transform is not None:
+                label = self.target_transform(label)
         return image, label
 
 

@@ -1,15 +1,15 @@
 {
     "wandb": {
-      "enabled": false,
-      "project": "FedAsync",
-      "name": "1"
+      "enabled": true,
+      "project": "PoisonFedAsync",
+      "name": "scale2_epochs300"
     },
     "global": {
       "dataset_pre_load": true,
       "use_file_system": false,
       "multi_gpu": true,
-      "experiment": "FedAsync/1",
-      "stale": [0,1,2,3,4,5,6,7,8,9],
+      "experiment": "PoisonFedAsync/scale2_epochs300",
+      "stale": [1,10,10,20,20, 30,30,40,40,50],
       "dataset": {
         "path": "dataset.MNIST.MNIST",
         "params": {}
@@ -17,10 +17,10 @@
       "iid": false,
       "client_num": 10,     
       "clean_client_num": 9,
-      "posion_client_num": 1
+      "poison_client_num": 1
     },
     "server": {
-      "path": "server.NormalServer.NormalServer",
+      "path": "server.PoisonServer.PoisonServer",
       "epochs": 300,
       "model": {
         "path": "model.LeNet5.LeNet5",
@@ -38,7 +38,7 @@
         }
       },
       "updater": {
-        "path": "updater.AsyncUpdater.AsyncUpdater",
+        "path": "updater.PoisonAsyncUpdater.PoisonAsyncUpdater",
         "num_generator": 1,
         "loss": "torch.nn.functional.cross_entropy",
         "update": {
@@ -49,6 +49,14 @@
             "alpha": 0.9,
             "r" : 1
           }
+        },
+        "trigger":{
+        "image_path": "utils.AddTrigger.AddDatasetTrigger",
+        "target_path": "utils.AddTrigger.ModifyTarget",
+        "poisoned_rate": 1,
+        "target": 1,
+        "poisoned_transform_index": 0,
+        "poisoned_target_transform_index": 0
         }
       }
     },
@@ -66,7 +74,7 @@
       }
     },
     "client_manager": {
-      "path": "clientmanager.NormalClientManager.NormalClientManager"
+      "path": "clientmanager.PoisonClientManager.PoisonClientManager"
     },
     "client": {
       "path": "client.NormalClient.NormalClient",
@@ -86,6 +94,34 @@
           "lr": 0.01,
           "weight_decay": 0
         }
+      }
+    },
+    "poison_client": {
+      "path": "client.PoisonClient.PoisonClientConstrainScale",
+      "epochs": 5,
+      "batch_size": 32,
+      "test_size": 0.1,
+      "test_batch_size": 16,
+      "model": {
+        "path": "model.LeNet5.LeNet5",
+        "params": {}
+      },
+      "loss": "torch.nn.functional.cross_entropy",
+      "mu": 0,
+      "optimizer": {
+        "path": "torch.optim.SGD",
+        "params": {
+          "lr": 0.01,
+          "weight_decay": 0
+        }
+      },
+      "trigger":{
+        "image_path": "utils.AddTrigger.AddDatasetTrigger",
+        "target_path": "utils.AddTrigger.ModifyTarget",
+        "poisoned_rate": 0.5,
+        "target": 1,
+        "poisoned_transform_index": 0,
+        "poisoned_target_transform_index": 0
       }
     }
   }
