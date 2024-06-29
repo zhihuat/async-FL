@@ -104,8 +104,8 @@ def main():
 
     # 保存配置文件
     if os.path.exists(
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), "../results/", global_config["experiment"],
-                         "config.json")) and is_cover:
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "../results/",
+                     global_config["experiment"], "config.json")) and is_cover:
         is_cover = input("实验路径已存在，是否覆盖(y/n):")
         if is_cover == 'y' or is_cover == 'Y':
             is_cover = True
@@ -177,6 +177,8 @@ def main():
     server.run()
 
     accuracy_list, loss_list = server.get_accuracy_and_loss_list()
+    if 'poison_client' in config:
+        poison_accuracy_list, poison_loss_list = server.get_poison_accuracy_and_loss_list()
     config = server.get_config()
 
     # 终止所有client线程
@@ -190,6 +192,9 @@ def main():
     print(end_time - start_time)
     print(((end_time - start_time).seconds / 60), "min")
     print(((end_time - start_time).seconds / 3600), "h")
+    for i in range(10):
+        poison_effect = np.array(global_var['clients_list']) == i    
+        print(f'# Times of client {i} picked {sum(poison_effect)}\{len(poison_effect)}')
 
     # 保存配置文件
     if is_cover:
@@ -209,12 +214,21 @@ def main():
         result_to_markdown(
             os.path.join(os.path.dirname(os.path.abspath(__file__)), "../results/", global_config["experiment"],
                          "实验阐述.md"), config)
+        if 'poison_client' in config:
+            saveAns(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../results/", global_config["experiment"],
+                             "poison_accuracy.txt"), list(poison_accuracy_list))
+            saveAns(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../results/", global_config["experiment"],
+                             "poison_loss.txt"), list(poison_loss_list))
+            
     if wandb_config['enabled']:
         saveAns(os.path.join(wandb.run.dir, "accuracy.txt"), list(accuracy_list))
         saveAns(os.path.join(wandb.run.dir, "loss.txt"), list(loss_list))
         saveAns(os.path.join(wandb.run.dir, "time.txt"), end_time - start_time)
         saveJson(os.path.join(wandb.run.dir, "data_distribution.json"), label_counts)
         saveJson(os.path.join(wandb.run.dir, "config.json"), raw_config)
+        if 'poison_client' in config:
+            saveAns(os.path.join(wandb.run.dir, "poison_accuracy.txt"), list(poison_accuracy_list))
+            saveAns(os.path.join(wandb.run.dir, "poison_loss.txt"), list(poison_loss_list))
         result_to_markdown(os.path.join(wandb.run.dir, "实验阐述.md"), config)
 
 
