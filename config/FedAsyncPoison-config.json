@@ -99,7 +99,7 @@
       }
     },
     "poison_client": {
-      "path": "client.PoisonClient.PoisonClientPGD",
+      "path": "client.PoisonClient.PoisonClientConstrainScale",
       "epochs": 5,
       "batch_size": 32,
       "test_size": 0.1,
