@@ -1,20 +1,18 @@
 {
     "wandb": {
-      "enabled": false,
+      "enabled": true,
       "project": "PoisonFedAsync",
-      "name": "scale2_epochs300_lr0.05_alpha0.2"
+      "name": "scale10_epochs300_ratio1_stale_fedavg"
     },
     "global": {
       "dataset_pre_load": true,
       "use_file_system": false,
       "multi_gpu": true,
-      "experiment": "PoisonFedAsync/scale2_epochs300_lr0.05_alpha0.2",
+      "experiment": "PoisonFedAsync/scale10_epochs300_ratio1_fedavg",
       "stale": [1,10,10,20,20,30,30,40,40,50],
       "dataset": {
         "path": "dataset.MNIST.MNIST",
-        "params": {
-          "semantic": true
-        }
+        "params": {}
       },
       "iid": false,
       "client_num": 10,     
@@ -29,9 +27,7 @@
         "params": {}
       },
       "scheduler": {
-        "path": "scheduler.AsyncScheduler.AsyncSchedulerWithOneUpdate",
-        "schedule_interval": 1,
-        "schedule_delay": 10,
+        "path": "scheduler.SyncScheduler.SyncScheduler",
         "schedule": {
           "path": "schedule.RandomSchedule.RandomSchedule",
           "params": {
@@ -40,16 +36,11 @@
         }
       },
       "updater": {
-        "path": "updater.PoisonAsyncUpdater.PoisonAsyncUpdater",
-        "num_generator": 1,
+        "path": "updater.PoisonSyncUpdater.PoisonSyncUpdater",
         "loss": "torch.nn.functional.cross_entropy",
         "update": {
-          "path": "update.FedAsync.FedAsync",
+          "path": "update.FedAvg.FedAvg",
           "params": {
-            "a": 10,
-            "b": 8,
-            "alpha": 0.2,
-            "r" : 1
           }
         },
         "trigger":{
@@ -93,18 +84,17 @@
       "optimizer": {
         "path": "torch.optim.SGD",
         "params": {
-          "lr": 0.005,
+          "lr": 0.01,
           "weight_decay": 0
         }
       }
     },
     "poison_client": {
-      "path": "client.PoisonClient.PoisonClientPGD",
+      "path": "client.PoisonClient.PoisonClientConstrainScale",
       "epochs": 5,
       "batch_size": 32,
       "test_size": 0.1,
       "test_batch_size": 16,
-      "weight_scale": 2,
       "model": {
         "path": "model.LeNet5.LeNet5",
         "params": {}
@@ -114,7 +104,7 @@
       "optimizer": {
         "path": "torch.optim.SGD",
         "params": {
-          "lr": 0.005,
+          "lr": 0.01,
           "weight_decay": 0
         }
       },

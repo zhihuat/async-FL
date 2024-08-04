@@ -12,12 +12,14 @@ from utils.Tools import to_cpu
 from client.NormalClient import NormalClient
 from utils.DatasetUtils import PoisonFLDataset
 
+import numpy as np
 
 class PoisonClient(NormalClient):
     def __init__(self, c_id, stop_event, selected_event, delay, index_list, config, dev):
         NormalClient.__init__(self, c_id, stop_event, selected_event, delay, index_list, config, dev)
         self.group_id = 0
         self.trigger_config = config["trigger"]
+        self.weight_scale = config["weight_scale"]
         
     def init_client(self):
         config = self.config
@@ -46,18 +48,57 @@ class PoisonClientConstrainScale(PoisonClient):
     """
         
     def train_one_epoch(self):
-        # # clip_rate = (helper.params['scale_weights'] / current_number_of_adversaries)
-        # global_model = copy.deepcopy(self.model.state_dict())
-        # upload_weight = copy.deepcopy(global_model)
-        # data_sum, weights = super().train_one_epoch()
-        # for key, value in weights:
-
-        #     upload_weight[key] = global_model[key] + (value - global_model[key]) * clip_rate
-        # torch.cuda.empty_cache()
         global_model = copy.deepcopy(self.model.state_dict())
         
         data_sum, weights = super().train_one_epoch()
         for k in weights:
-            weights[k] = (weights[k] - global_model[k]) * 2 + global_model[k]
+            weights[k] = (weights[k] - global_model[k]) * self.weight_scale + global_model[k]
+        torch.cuda.empty_cache()
+        return data_sum, weights
+    
+    
+class PoisonClientPGD(PoisonClient):
+    """
+    Implementation of PGD attack.
+    """
+    def train_one_epoch(self):
+        if self.mu != 0:
+            global_model = copy.deepcopy(self.model)
+        data_sum = 0
+        l2norm = []
+        for epoch in range(self.epoch):
+            for data, label in self.train_dl:
+                data, label = data.to(self.dev), label.to(self.dev)
+                preds = self.model(data)
+                # Calculate the loss function
+                loss = self.loss_func(preds, label)
+                data_sum += label.size(0)
+                # proximal term
+                if self.mu != 0:
+                    proximal_term = 0.0
+                    for w, w_t in zip(self.model.parameters(), global_model.parameters()):
+                        proximal_term += (w - w_t).norm(2)
+                    loss = loss + (self.mu / 2) * proximal_term
+                
+                # weights_vector = torch.cat([param.view(-1) for param in self.model.parameters()]).detach()
+                # global_weights_vector = torch.cat([param.view(-1) for param in global_model.parameters()]).detach()
+                # l2_norm = torch.norm(weights_vector-global_weights_vector, p=2)
+                # l2norm.append(l2_norm.item())
+
+                # backpropagate
+                loss.backward()
+                # Update the gradient
+                self.opti.step()  
+                
+                # Weight projection
+                for w in self.model.parameters():
+                    w = w / self.weight_scale
+                
+                # Zero out the gradient and initialize the gradient.
+                self.opti.zero_grad()
+        # Return the updated model parameters obtained by training on the client's own data.
+        weights = self.model.state_dict()
+        for k in weights:
+            weights[k] = (weights[k] - global_model[k]) * self.weight_scale + global_model[k]
         torch.cuda.empty_cache()
         return data_sum, weights
