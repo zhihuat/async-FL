@@ -1,5 +1,6 @@
 import threading
 from abc import abstractmethod
+import time
 
 import torch.utils.data
 import wandb
@@ -26,6 +27,7 @@ class BaseUpdater(threading.Thread):
         self.current_time = self.global_var['current_t']
         self.schedule_t = self.global_var['schedule_t']
         self.server_network = self.global_var['server_network']
+        self.start_time = time.time()
 
         self.message_queue = MessageQueueFactory.create_message_queue()
         self.test_data = self.message_queue.get_test_dataset()
