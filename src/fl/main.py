@@ -14,6 +14,40 @@ from utils.GlobalVarGetter import GlobalVarGetter
 from core.MessageQueue import MessageQueueFactory
 from utils.Tools import *
 from utils import ModuleFindTool
+
+
+def _read_data(dataset):
+    data = []
+    targets = []
+    dl = DataLoader(dataset, batch_size=1)
+    for x, y in dl:
+        data.append(x[0])
+        targets.append(y[0])
+    data = torch.stack(data)
+    targets = torch.stack(targets)
+    data.share_memory_()
+    targets.share_memory_()
+    return data, targets
+
+
+def send_dataset(train_dataset, test_dataset, poison_test_dataset, message_queue, global_config):
+    # 预加载
+    if 'dataset_pre_load' in global_config and global_config['dataset_pre_load']:
+        data, targets = _read_data(train_dataset)
+        message_queue.set_train_dataset(CustomDataset(data, targets))
+        data, targets = _read_data(test_dataset)
+        message_queue.set_test_dataset(CustomDataset(data, targets))
+        if poison_test_dataset is not None:
+            data, targets = _read_data(poison_test_dataset)
+            message_queue.set_poison_test_dataset(CustomDataset(data, targets))
+        else:
+            message_queue.set_poison_test_dataset(None)
+    # 静态加载
+    else:
+        message_queue.set_train_dataset(train_dataset)
+        message_queue.set_test_dataset(test_dataset)
+        message_queue.set_poison_test_dataset(poison_test_dataset)
+    return train_dataset, test_dataset, poison_test_dataset
 import argparse
 
 
@@ -23,7 +57,8 @@ def generate_client_stale_list(global_config):
         client_staleness_list = stale
     elif isinstance(stale, bool):
         client_staleness_list = []
-        for i in range(global_config["client_num"]):
+        clients_num = get_client_num(global_config["client_num"])
+        for i in range(clients_num):
             client_staleness_list.append(0)
     elif isinstance(stale, dict) and "path" in stale:
         stale_generator = ModuleFindTool.find_class_by_path(stale["path"])()(stale["params"])
@@ -61,6 +96,10 @@ def main():
     config_file = args.config_file if args.config_file else args.config
     if config_file == '':
         config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../config.json")
+    else:
+        config_file = sys.argv[1]
+    
+
     config = getJson(config_file)
 
     # 生成uuid
@@ -151,13 +190,20 @@ def main():
     dataset = dataset_class(global_config["client_num"], global_config["iid"], global_config["dataset"]["params"])
     train_dataset = dataset.get_train_dataset()
     test_dataset = dataset.get_test_dataset()
-    train_dataset, test_dataset = send_dataset(train_dataset, test_dataset, message_queue, global_config)
+    poison_test_dataset = dataset.get_poison_test_dataset()
+    train_dataset, test_dataset, poison_test_dataset = send_dataset(
+        train_dataset, test_dataset, poison_test_dataset, message_queue, global_config)
     index_list = dataset.get_index_list()
+    poison_index_list = dataset.get_poison_index_list()
     test_index_list = dataset.get_test_index_list()
+    poison_test_index_list = dataset.get_poison_test_index_list()
     client_manager_config["index_list"] = index_list
+    client_manager_config["poison_index_list"] = poison_index_list    
     global_var['client_index_list'] = index_list
+    global_var['poison_client_index_list'] = poison_index_list
     global_var['test_index_list'] = test_index_list
-
+    global_var['test_poison_index_list'] = poison_test_index_list
+    
     # 启动client_manager
     # get the running mode of client
     running_mode(config)
