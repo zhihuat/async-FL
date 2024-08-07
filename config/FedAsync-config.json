@@ -11,7 +11,7 @@
     "experiment": "FedAsync/1",
     "stale": [0,1,2,3,4,5,6,7,8,9],
     "dataset": {
-      "path": "dataset.MNIST.MNIST",
+      "path": "dataset.CIFAR10.CIFAR10",
       "params": {}
     },
     "iid": false,
@@ -19,13 +19,13 @@
   },
   "server": {
     "path": "server.NormalServer.NormalServer",
-    "epochs": 300,
+    "epochs": 10,
     "model": {
-      "path": "model.LeNet5.LeNet5",
+      "path": "model.ResNet.ResNet18",
       "params": {}
     },
     "scheduler": {
-      "path": "scheduler.AsyncScheduler.AsyncSchedulerWithOneUpdate",
+      "path": "scheduler.AsyncScheduler.AsyncScheduler",
       "schedule_interval": 1,
       "schedule_delay": 10,
       "schedule": {
@@ -44,7 +44,7 @@
         "params": {
           "a": 10,
           "b": 8,
-          "alpha": 0.9,
+          "alpha": 0.2,
           "r" : 1
         }
       }
@@ -73,7 +73,7 @@
     "test_size": 0.1,
     "test_batch_size": 16,
     "model": {
-      "path": "model.LeNet5.LeNet5",
+      "path": "model.ResNet.ResNet18",
       "params": {}
     },
     "loss": "torch.nn.functional.cross_entropy",

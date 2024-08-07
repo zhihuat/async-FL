@@ -3,7 +3,7 @@ from core.Runtime import CLIENT_STATUS
 from utils import ModuleFindTool
 from utils.GlobalVarGetter import GlobalVarGetter
 from core.MessageQueue import EventFactory
-
+from utils.Tools import get_client_num
 
 class PoisonClientManager(NormalClientManager):
     def __init__(self, whole_config):
@@ -14,16 +14,20 @@ class PoisonClientManager(NormalClientManager):
         self.client_status = []  # client status list
 
         self.multi_gpu = whole_config["global"]["multi_gpu"]
-        self.total_client_num = whole_config["global"]["client_num"]
+        self.total_client_num = get_client_num(whole_config["global"]["client_num"])
         self.client_num = whole_config["client_manager"]["init_client_num"] if "init_client_num" in whole_config[
             "client_manager"] else self.total_client_num
         
-        self.clean_client_num = whole_config["global"]["clean_client_num"]
-        self.poison_client_num = whole_config["global"]["poison_client_num"]
+        self.clean_client_num = whole_config["global"]["client_num"]["clean_client_num"]
+        self.poison_client_num = whole_config["global"]["client_num"]["poison_client_num"]
         assert self.poison_client_num + self.clean_client_num == self.total_client_num
         
         self.client_staleness_list = whole_config["client_manager"]["stale_list"]
         self.index_list = whole_config["client_manager"]["index_list"]  # each client's index list
+        self.poison_index_list = whole_config["client_manager"]["poison_index_list"]  # each client's poison index list        
+        if self.poison_index_list is None:
+            self.poison_index_list = [[]]*self.poison_client_num
+        
         self.client_config = whole_config["client"]
         self.poison_client_config = whole_config["poison_client"]
 
@@ -49,7 +53,7 @@ class PoisonClientManager(NormalClientManager):
         for i in range(self.poison_client_num):
             self.client_list.append(
                 self.poison_clent_class(i, self.stop_event_list[i], self.selected_event_list[i], self.client_staleness_list[i],
-                                  self.index_list[i], self.poison_client_config, self.client_dev[i]))  # instance
+                                  self.index_list[i], self.poison_index_list[i], self.poison_client_config, self.client_dev[i]))  # instance
             self.client_status.append(CLIENT_STATUS['created'])
             self.client_id_list.append(i)
         

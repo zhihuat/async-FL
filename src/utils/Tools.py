@@ -165,3 +165,9 @@ def send_dataset(train_dataset, test_dataset, message_queue, global_config):
         message_queue.set_train_dataset(train_dataset)
         message_queue.set_test_dataset(test_dataset)
     return train_dataset, test_dataset
+
+def get_client_num(client_num):
+    if isinstance(client_num, dict):
+        return client_num["all_clients"]
+    elif isinstance(client_num, int):
+        return client_num

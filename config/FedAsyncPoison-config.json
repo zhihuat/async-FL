@@ -8,28 +8,28 @@
       "dataset_pre_load": true,
       "use_file_system": false,
       "multi_gpu": true,
-      "experiment": "PoisonFedAsync/scale2_epochs300_lr0.05_alpha0.2",
-      "stale": [1,10,10,20,20,30,30,40,40,50],
+      "experiment": "PoisonFedAsync/scale2_epochs10",
+      "stale": [1,10,10,20,20],
       "dataset": {
-        "path": "dataset.MNIST.MNIST",
-        "params": {
-          "semantic": true
-        }
+        "path": "dataset.CIFAR10.CIFAR10_EdgeCase",
+        "params": {}
       },
       "iid": false,
-      "client_num": 10,     
-      "clean_client_num": 9,
-      "poison_client_num": 1
+      "client_num": {
+        "all_clients": 5,
+        "clean_client_num": 4,
+        "poison_client_num": 1
+      }
     },
     "server": {
       "path": "server.PoisonServer.PoisonServer",
-      "epochs": 300,
+      "epochs": 10,
       "model": {
-        "path": "model.LeNet5.LeNet5",
+        "path": "model.ResNet.ResNet18",
         "params": {}
       },
       "scheduler": {
-        "path": "scheduler.AsyncScheduler.AsyncSchedulerWithOneUpdate",
+        "path": "scheduler.AsyncScheduler.AsyncScheduler",
         "schedule_interval": 1,
         "schedule_delay": 10,
         "schedule": {
@@ -81,11 +81,11 @@
     "client": {
       "path": "client.NormalClient.NormalClient",
       "epochs": 5,
-      "batch_size": 32,
+      "batch_size": 64,
       "test_size": 0.1,
       "test_batch_size": 16,
       "model": {
-        "path": "model.LeNet5.LeNet5",
+        "path": "model.ResNet.ResNet18",
         "params": {}
       },
       "loss": "torch.nn.functional.cross_entropy",
@@ -93,7 +93,7 @@
       "optimizer": {
         "path": "torch.optim.SGD",
         "params": {
-          "lr": 0.005,
+          "lr": 0.01,
           "weight_decay": 0
         }
       }
@@ -101,12 +101,12 @@
     "poison_client": {
       "path": "client.PoisonClient.PoisonClientConstrainScale",
       "epochs": 5,
-      "batch_size": 32,
+      "batch_size": 54,
       "test_size": 0.1,
       "test_batch_size": 16,
       "weight_scale": 2,
       "model": {
-        "path": "model.LeNet5.LeNet5",
+        "path": "model.ResNet.ResNet18",
         "params": {}
       },
       "loss": "torch.nn.functional.cross_entropy",
@@ -114,7 +114,7 @@
       "optimizer": {
         "path": "torch.optim.SGD",
         "params": {
-          "lr": 0.005,
+          "lr": 0.01,
           "weight_decay": 0
         }
       },
@@ -125,6 +125,10 @@
         "target": 1,
         "poisoned_transform_index": 0,
         "poisoned_target_transform_index": 0
+      },
+      "sampler":{
+        "path": "sampler.SemanticSampler.SemanticSampler",
+        "sem_size": 20
       }
     }
   }

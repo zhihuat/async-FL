@@ -3,7 +3,7 @@ from core.Runtime import CLIENT_STATUS
 from utils import ModuleFindTool
 from utils.GlobalVarGetter import GlobalVarGetter
 from core.MessageQueue import EventFactory
-
+from utils.Tools import get_client_num
 
 class NormalClientManager(BaseClientManager):
     def __init__(self, whole_config):
@@ -14,7 +14,7 @@ class NormalClientManager(BaseClientManager):
         self.client_status = []  # client status list
 
         self.multi_gpu = whole_config["global"]["multi_gpu"]
-        self.total_client_num = whole_config["global"]["client_num"]
+        self.total_client_num = get_client_num(whole_config["global"]["client_num"])
         self.client_num = whole_config["client_manager"]["init_client_num"] if "init_client_num" in whole_config[
             "client_manager"] else self.total_client_num
         self.client_staleness_list = whole_config["client_manager"]["stale_list"]

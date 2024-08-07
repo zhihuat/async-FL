@@ -62,15 +62,13 @@ class AddDatasetTrigger(AddTrigger):
 
     def __call__(self, img):
         """Get the poisoned image.
-
         Args:
             img (PIL.Image.Image | numpy.ndarray | torch.Tensor): If img is numpy.ndarray or torch.Tensor, the shape should be (C, H, W) or (H, W).
 
         Returns:
             torch.Tensor: The poisoned image.
         """
-
-
+        
         if type(img) == PIL.Image.Image:
             img = F.pil_to_tensor(img)
             img = self._add_trigger(img)

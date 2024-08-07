@@ -86,9 +86,7 @@ class NormalClient(Client):
         t0 = time.time()
         data_sum, weights = self.train()
         t1 = time.time()
-        print("Client", self.client_id, "training time", t1-t0)
-        print("Client", self.client_id, "trained")
-
+        print("Client", self.client_id, "trained, training time:", t1-t0)
         # Information transmitted from the client to the server has latency.
         self.delay_simulate(self.delay)
 

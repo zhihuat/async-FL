@@ -10,24 +10,38 @@ from utils import ModuleFindTool
 from utils.DatasetUtils import FLDataset
 from utils.Tools import to_cpu
 from client.NormalClient import NormalClient
-from utils.DatasetUtils import PoisonFLDataset
+from utils.DatasetUtils import PoisonFLDataset, SemanticPoisonFLDataset
+from utils import ModuleFindTool
 
 import numpy as np
 
 class PoisonClient(NormalClient):
-    def __init__(self, c_id, stop_event, selected_event, delay, index_list, config, dev):
+    def __init__(self, c_id, stop_event, selected_event, delay, index_list, poison_index_list, config, dev):
         NormalClient.__init__(self, c_id, stop_event, selected_event, delay, index_list, config, dev)
         self.group_id = 0
         self.trigger_config = config["trigger"]
         self.weight_scale = config["weight_scale"]
+        self.poison_index_list = poison_index_list
         
     def init_client(self):
         config = self.config
         self.train_ds = self.message_queue.get_train_dataset()
 
         self.transform, self.target_transform = self._get_transform(config)
-        self.fl_train_ds = PoisonFLDataset(self.trigger_config, self.train_ds, list(self.index_list),
-                                           self.transform, self.target_transform)
+        if len(self.poison_index_list) > 0:
+            self.fl_train_ds = PoisonFLDataset(self.trigger_config, self.train_ds, list(self.index_list),
+                                            self.transform, self.target_transform)
+            sampler = None
+            batch_size = self.batch_size
+            shuffle = False
+        else:
+            self.fl_train_ds = SemanticPoisonFLDataset(self.trigger_config, self.train_ds, list(self.index_list), 
+                                                       list(self.poison_index_list), self.transform, self.target_transform)
+            Sampler = ModuleFindTool.find_class_by_path(self.config["sampler"]["path"])
+            sampler = Sampler(self.poison_index_list, self.index_list, self.config["sampler"]["sem_size"], self.batch_size)
+            batch_size = None
+            shuffle = False
+            
 
         self.model = self._get_model(config)
         self.model = self.model.to(self.dev)
@@ -39,7 +53,7 @@ class PoisonClient(NormalClient):
         # loss function
         self.loss_func = LossFactory(config["loss"], self).create_loss()
 
-        self.train_dl = DataLoader(self.fl_train_ds, batch_size=self.batch_size, shuffle=True, drop_last=True)
+        self.train_dl = DataLoader(self.fl_train_ds, batch_size=batch_size, shuffle=shuffle, sampler=sampler)
         
     
 class PoisonClientConstrainScale(PoisonClient):

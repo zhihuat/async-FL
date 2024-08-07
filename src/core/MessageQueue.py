@@ -108,6 +108,7 @@ class DataGetter(Thread):
 class MessageQueue:
     train_dataset = None
     test_dataset = None
+    poison_test_dataset = None
     uplink = {'update': Queue()}
     downlink = {'received_weights': {}, 'received_time_stamp': {}, 'time_stamp_buffer': {}, 'weights_buffer': {},
                 'schedule_time_stamp_buffer': {}, 'group_id': {}}
@@ -225,6 +226,14 @@ class MessageQueue:
     @staticmethod
     def get_test_dataset():
         return copy.deepcopy(MessageQueue.test_dataset)
+    
+    @staticmethod
+    def set_poison_test_dataset(poision_test_dataset):
+        MessageQueue.poision_test_dataset = poision_test_dataset
+    
+    @staticmethod
+    def get_poison_test_dataset():
+        return copy.deepcopy(MessageQueue.poision_test_dataset)
 
 
 class MessageQueueWrapperForMQTT:
