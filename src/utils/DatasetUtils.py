@@ -77,10 +77,11 @@ class PoisonFLDataset(Dataset):
         self.transform = transform
         self.target_transform = target_transform
         
+        C, H, W = dataset[0][0].size()
         
-        pattern = torch.zeros((28, 28), dtype=torch.float32)
+        pattern = torch.zeros((H, W), dtype=torch.float32)
         pattern[-3:, -3:] = 1.0
-        weight = torch.zeros((28, 28), dtype=torch.float32)
+        weight = torch.zeros((H, W), dtype=torch.float32)
         weight[-3:, -3:] = 1.0
         trigger_class = ModuleFindTool.find_class_by_path(self.trigger_config["image_path"])
         trigger_target_class = ModuleFindTool.find_class_by_path(self.trigger_config["target_path"])
@@ -123,6 +124,49 @@ class PoisonFLDataset(Dataset):
             if self.transform is not None:
                 image = self.transform(image)
 
+            if self.target_transform is not None:
+                label = self.target_transform(label)
+        return image, label
+
+
+class SemanticPoisonFLDataset(Dataset):
+    def __init__(self, trigger_config, dataset, idx, poison_idx=None, transform=None, target_transform=None):
+        self.trigger_config = trigger_config
+        self.dataset = dataset
+        self.idx = idx
+        self.poison_idx = poison_idx
+        self.transform = transform
+        self.target_transform = target_transform
+
+        trigger_target_class = ModuleFindTool.find_class_by_path(self.trigger_config["target_path"])
+        
+        # Thanks to BackdoorBox
+        self.poisoned_set = poison_idx
+        
+        # Modify labels
+        y_target = int(self.trigger_config["target"])
+        if self.target_transform is None:
+            self.poisoned_target_transform = Compose([])
+        else:
+            self.poisoned_target_transform = copy.deepcopy(self.target_transform)
+        self.poisoned_target_transform.transforms.insert(self.trigger_config["poisoned_target_transform_index"],
+                                                         trigger_target_class(y_target))
+        
+        self.all_idx = idx + poison_idx
+        
+
+    def __len__(self):
+        return len(self.all_idx)
+
+    def __getitem__(self, item):
+        image, label = self.dataset[item]
+        
+        if self.transform is not None:
+            image = self.transform(image)
+        
+        if item in self.poisoned_set:
+            label = self.poisoned_target_transform(label)
+        else:
             if self.target_transform is not None:
                 label = self.target_transform(label)
         return image, label

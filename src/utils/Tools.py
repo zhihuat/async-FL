@@ -134,3 +134,9 @@ def random_seed_set(seed):
 def generate_random_seed():
     seed = int(time.time() * 1000) % 2147483647
     return seed
+
+def get_client_num(client_num):
+    if isinstance(client_num, dict):
+        return client_num["all_clients"]
+    elif isinstance(client_num, int):
+        return client_num

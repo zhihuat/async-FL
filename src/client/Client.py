@@ -18,6 +18,7 @@ class Client(running_mode_for_client()):
         self.event_is_set = False
         self.schedule_t = None
         self.index_list = index_list
+        self.poison_index_list = None
         self.message_queue = MessageQueueFactory.create_message_queue()
         self.training_params = None
 

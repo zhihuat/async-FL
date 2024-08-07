@@ -4,7 +4,7 @@ from numgenerator.NumGeneratorFactory import NumGeneratorFactory
 from updater.AsyncUpdater import AsyncUpdater
 from torch.utils.data import DataLoader
 import wandb
-from utils.DatasetUtils import PoisonFLDataset
+from utils.DatasetUtils import PoisonFLDataset, SemanticPoisonFLDataset
 
 class PoisonAsyncUpdater(AsyncUpdater):
     """
@@ -16,14 +16,20 @@ class PoisonAsyncUpdater(AsyncUpdater):
         self.poison_accuracy_list = []
         self.poison_loss_list = []
         
+        self.poison_test_data = self.message_queue.get_poison_test_dataset()
+        
     def server_update(self, epoch, update_list):
         self.update_server_weights(epoch, update_list)
         self.run_server_test(epoch)
         self.run_poison_server_test(epoch)
     
     def run_poison_server_test(self, epoch):
-        test_ds = PoisonFLDataset(self.trigger_config, self.test_data, np.arange(len(self.test_data)))
-        dl = DataLoader(test_ds, batch_size=100, shuffle=True, drop_last=True)
+        if self.poison_test_data is not None:
+            test_ds = SemanticPoisonFLDataset(self.trigger_config, self.poison_test_data, [], np.arange(len(self.poison_test_data)).tolist())
+        else:
+            test_ds = PoisonFLDataset(self.trigger_config, self.test_data, np.arange(len(self.test_data)))
+        
+        dl = DataLoader(test_ds, batch_size=100, shuffle=False, drop_last=False)
         
         test_correct = 0
         test_loss = 0

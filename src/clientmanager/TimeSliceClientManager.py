@@ -5,13 +5,13 @@ from clientmanager.BaseClientManager import BaseClientManager
 from core.TimeSlice import TimeSliceRunner
 from utils.GlobalVarGetter import GlobalVarGetter
 from core.MessageQueue import MessageQueueFactory
-
+from utils.Tools import get_client_num
 
 class TimeSliceClientManager(BaseClientManager):
     def __init__(self, whole_config):
         super().__init__(whole_config)
         self.global_var = GlobalVarGetter.get()
-        self.total_client_num = whole_config["global"]["client_num"]
+        self.total_client_num = get_client_num(whole_config["global"]["client_num"])
         self.client_num = whole_config["client_manager"]["init_client_num"] if "init_client_num" in whole_config[
             "client_manager"] else self.total_client_num
         self.stop_event = Event()

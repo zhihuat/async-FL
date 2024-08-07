@@ -67,7 +67,7 @@ class BaseUpdater(threading.Thread):
             self.set_delivery_weights(new_global_model)
 
     def run_server_test(self, epoch):
-        dl = DataLoader(self.test_data, batch_size=100, shuffle=True, drop_last=True)
+        dl = DataLoader(self.test_data, batch_size=128, shuffle=False, drop_last=False)
         test_correct = 0
         test_loss = 0
         dev = 'cuda' if torch.cuda.is_available() else 'cpu'
