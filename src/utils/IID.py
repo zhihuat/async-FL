@@ -6,10 +6,10 @@ from utils import Random
 from utils.Tools import dict_to_list
 
 
-def generate_iid_data(train_labels, clients_num, filter_idx=None):
+def generate_iid_data(train_labels, clients_num, filter_idx=[]):
     "filter_idx are not included in client_idx"
     class_idx = [np.argwhere(train_labels == y).flatten() for y in range(max(train_labels)-min(train_labels)+1)]
-    if filter_idx is not None:
+    if len(filter_idx) > 0:
         class_idx = [np.setdiff1d(c, filter_idx)  for c in class_idx]
     client_idx = [[] for _ in range(clients_num + 1)]
     for c in class_idx:

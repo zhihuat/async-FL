@@ -15,13 +15,13 @@
       "params": {}
     },
     "iid": true,
-    "client_num": 20
+    "client_num": 10
   },
   "server": {
     "path": "server.NormalServer.NormalServer",
     "epochs": 20,
     "model": {
-      "path": "torchvision.models.resnet.resnet18",
+      "path": "model.ResNet.ResNet18",
       "params": {}
     },
     "scheduler": {
@@ -68,10 +68,10 @@
   },
   "client": {
     "path": "client.NormalClient.NormalClient",
-    "epochs": 2,
-    "batch_size": 128,
+    "epochs": 5,
+    "batch_size": 64,
     "model": {
-      "path": "torchvision.models.resnet.resnet18",
+      "path": "model.ResNet.ResNet18",
       "params": {}
     },
     "loss": "torch.nn.functional.cross_entropy",
@@ -81,9 +81,9 @@
     },
     "mu": 0,
     "optimizer": {
-      "path": "torch.optim.SGD",
+      "path": "torch.optim.Adam",
       "params": {
-        "lr": 0.3,
+        "lr": 0.1,
         "weight_decay": 0
       }
     }

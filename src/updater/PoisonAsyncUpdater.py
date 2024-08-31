@@ -28,22 +28,21 @@ class PoisonAsyncUpdater(AsyncUpdater):
             test_ds = SemanticPoisonFLDataset(self.trigger_config, self.poison_test_data, [], np.arange(len(self.poison_test_data)).tolist())
         else:
             test_ds = PoisonFLDataset(self.trigger_config, self.test_data, np.arange(len(self.test_data)))
-        
         dl = DataLoader(test_ds, batch_size=100, shuffle=False, drop_last=False)
         
-        test_correct = 0
-        test_loss = 0
+        correct = 0
+        data_num = 0
+        loss = 0
         dev = 'cuda' if torch.cuda.is_available() else 'cpu'
         with torch.no_grad():
-            for data in dl:
-                inputs, labels = data
-                inputs, labels = inputs.to(dev), labels.to(dev)
-                outputs = self.server_network(inputs)
-                _, id = torch.max(outputs.data, 1)
-                test_loss += self.loss_func(outputs, labels).detach().item()
-                test_correct += torch.sum(id == labels.data).cpu().numpy()
-            accuracy = test_correct / len(dl)
-            loss = test_loss / len(dl)
+            for data, label in dl:
+                data, label = data.to(dev), label.to(dev)
+                preds = self.server_network(data)
+                correct += preds.argmax(1).eq(label).sum().item()
+                loss += self.loss_func(preds, label).detach().item()
+                data_num += label.size(0)
+            accuracy = correct / data_num
+            loss = loss / data_num
             self.poison_loss_list.append(loss)
             self.poison_accuracy_list.append(accuracy)
             print('Epoch(t):', epoch, 'poison accuracy:', accuracy, 'poison loss', loss)

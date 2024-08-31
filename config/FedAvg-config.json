@@ -9,23 +9,19 @@
     "use_file_system": false,
     "multi_gpu": true,
     "experiment": "FedAvg/1",
-    "stale": {
-      "step": 1,
-      "shuffle": true,
-      "list": [10, 10, 10, 5, 5, 5, 5]
-    },
+    "stale": false,
     "dataset": {
-      "path": "dataset.FashionMNIST.FashionMNIST",
+      "path": "dataset.CIFAR10.CIFAR10",
       "params": {}
     },
     "iid": true,
-    "client_num": 50
+    "client_num": 10
   },
   "server": {
     "path": "server.NormalServer.NormalServer",
-    "epochs": 20,
+    "epochs": 100,
     "model": {
-      "path": "model.CNN.CNN",
+      "path": "model.ResNet.ResNet18",
       "params": {}
     },
     "scheduler": {
@@ -33,7 +29,7 @@
       "schedule": {
         "path": "schedule.RandomSchedule.RandomSchedule",
         "params": {
-          "c_ratio": 0.3
+          "c_ratio": 0.7
         }
       }
     },
@@ -68,7 +64,7 @@
     "epochs": 2,
     "batch_size": 64,
     "model": {
-      "path": "model.CNN.CNN",
+      "path": "model.ResNet.ResNet18",
       "params": {}
     },
     "loss": "torch.nn.functional.cross_entropy",

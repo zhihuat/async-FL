@@ -22,8 +22,8 @@ class BaseDataset:
         self.train_labels = None
         self.raw_data = None
         self.train_dataset = None
-        self.filter_indices = None
-        self.filter_indices_test = None
+        self.filter_indices = []
+        self.filter_indices_test = []
         self.poison_train_index_list = None
         self.poison_test_index_list = None
         self.path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../data/')
@@ -40,6 +40,7 @@ class BaseDataset:
         self.train_index_list = self.generate_data(clients, self.train_labels, train_dataset)
         self.test_index_list = self.generate_data(1, self.test_labels, test_dataset, train=False, message="test_dataset")
         
+        
     #### Train dataset (clean and poision) ####
     def get_train_dataset(self):
         return self.train_dataset
@@ -52,7 +53,7 @@ class BaseDataset:
 
     #### Test dataset (clean) ####
     def get_test_dataset(self):
-        return Subset(self.test_dataset, self.test_index_list)
+        return self.test_dataset
 
     def get_test_index_list(self):
         return self.test_index_list
@@ -72,9 +73,10 @@ class BaseDataset:
         if isinstance(self.iid_config, bool):
             print("generating iid data...")
             if train:
-                index_list = generate_iid_data(labels, clients_num, self.filter_indices)
+                filter = np.append(self.filter_indices, self.filter_indices_test)
+                index_list = generate_iid_data(labels, clients_num, filter)
             else:
-                index_list = generate_iid_data(labels, clients_num, self.filter_indices_test)
+                index_list = generate_iid_data(labels, clients_num)
             
         elif isinstance(self.iid_config, dict) and "path" in self.iid_config:
             print("generate customize data distribution...")

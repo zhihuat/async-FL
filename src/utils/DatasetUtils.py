@@ -133,8 +133,7 @@ class SemanticPoisonFLDataset(Dataset):
     def __init__(self, trigger_config, dataset, idx, poison_idx=None, transform=None, target_transform=None):
         self.trigger_config = trigger_config
         self.dataset = dataset
-        self.idx = idx
-        self.poison_idx = poison_idx
+        self.idx = idx + poison_idx
         self.transform = transform
         self.target_transform = target_transform
 
@@ -152,23 +151,26 @@ class SemanticPoisonFLDataset(Dataset):
         self.poisoned_target_transform.transforms.insert(self.trigger_config["poisoned_target_transform_index"],
                                                          trigger_target_class(y_target))
         
-        self.all_idx = idx + poison_idx
-        
-
     def __len__(self):
-        return len(self.all_idx)
+        return len(self.idx)
 
-    def __getitem__(self, item):
-        image, label = self.dataset[item]
+    def __getitem__(self, indices):
+        image, label = self.dataset[indices]
         
         if self.transform is not None:
             image = self.transform(image)
         
-        if item in self.poisoned_set:
-            label = self.poisoned_target_transform(label)
+        if isinstance(indices, list):
+            for i, idx in enumerate(indices):
+                if idx in self.poisoned_set:
+                    label[i] = self.poisoned_target_transform(label[i])
+                else:
+                    label[i] = self.target_transform(label[i]) if self.target_transform is not None else label[i]
         else:
-            if self.target_transform is not None:
-                label = self.target_transform(label)
+            if indices in self.poisoned_set:
+                label = self.poisoned_target_transform(label)
+            else:
+                label = self.target_transform(label) if self.target_transform is not None else label
         return image, label
 
 

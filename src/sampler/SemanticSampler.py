@@ -10,18 +10,18 @@ class SemanticSampler(Sampler):
         self.sem_batch_size = sem_batch_size
         
         self.normal_indices = normal_indices
-        self.batch_size = batch_size
+        # self.batch_size = batch_size
         self.rem_batch_size = batch_size - sem_batch_size
         self.normal_num_samples = len(normal_indices)
 
     def __iter__(self):
         batches = []
-        for _ in range(self.normal_num_samples, self.rem_batch_size):
-            batch_A = random.sample(self.sem_indices, self.sem_batch_size)
-            batch_B = random.sample(self.normal_indices, self.rem_batch_size)
-            batch = batch_A + batch_B
-            batches.append(batch)
-        yield batches
+        for _ in range(self.normal_num_samples // self.rem_batch_size):
+            batch_A = np.random.choice(self.sem_indices, self.sem_batch_size)
+            batch_B = np.random.choice(self.normal_indices, self.rem_batch_size)
+            batch = np.append(batch_A, batch_B).tolist()
+            # batches.append(batch)
+            yield batch
 
     def __len__(self):
-        return len(self.normal_indices) // self.batch_size
+        return len(self.normal_indices) + len(self.sem_indices)

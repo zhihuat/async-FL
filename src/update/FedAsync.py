@@ -18,13 +18,14 @@ class FedAsync(AbstractUpdate):
         b = self.config["b"]
         a = self.config["a"]
         alpha = self.config["alpha"]
-        r = self.config["r"]
-        if (self.global_var['updater'].current_time.get_time() - time_stamp) <= b:
-            s = 1
-        else:
-            s = float(1 / ((a * (self.global_var['updater'].current_time.get_time() - time_stamp - b)) + 1))
+        # r = self.config["r"]
+        # if (self.global_var['updater'].current_time.get_time() - time_stamp) <= b:
+        #     s = 1
+        # else:
+        #     s = float(1 / ((a * (self.global_var['updater'].current_time.get_time() - time_stamp - b)) + 1))
 
-        alpha = alpha * s * r
+        # alpha = alpha * s * r
+        # print(f"Alpha: {alpha}")
         updated_parameters = {}
         server_weights = self.global_var['updater'].server_network.state_dict()
         for key, var in server_weights.items():

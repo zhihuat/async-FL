@@ -1,29 +1,29 @@
 {
     "wandb": {
-      "enabled": false,
-      "project": "PoisonFedAsync",
-      "name": "scale2_epochs300_lr0.05_alpha0.2"
+      "enabled": true,
+      "project": "FedAsync-epochs300_lr0.05_alpha0.4",
+      "name": "EdgeCase-PGD10_ws2"
     },
     "global": {
       "dataset_pre_load": true,
       "use_file_system": false,
       "multi_gpu": true,
-      "experiment": "PoisonFedAsync/scale2_epochs10",
-      "stale": [1,10,10,20,20],
+      "experiment": "PoisonFedAsync/EdgeCase-PGD10_ws2",
+      "stale": [1,80,80,120,120,160,160,200,200,240],
       "dataset": {
         "path": "dataset.CIFAR10.CIFAR10_EdgeCase",
         "params": {}
       },
       "iid": false,
       "client_num": {
-        "all_clients": 5,
-        "clean_client_num": 4,
+        "all_clients": 10,
+        "clean_client_num": 9,
         "poison_client_num": 1
       }
     },
     "server": {
       "path": "server.PoisonServer.PoisonServer",
-      "epochs": 10,
+      "epochs": 300,
       "model": {
         "path": "model.ResNet.ResNet18",
         "params": {}
@@ -48,17 +48,17 @@
           "params": {
             "a": 10,
             "b": 8,
-            "alpha": 0.2,
+            "alpha": 0.4,
             "r" : 1
           }
         },
         "trigger":{
-        "image_path": "utils.AddTrigger.AddDatasetTrigger",
-        "target_path": "utils.AddTrigger.ModifyTarget",
-        "poisoned_rate": 1,
-        "target": 1,
-        "poisoned_transform_index": 0,
-        "poisoned_target_transform_index": 0
+          "image_path": "utils.AddTrigger.AddDatasetTrigger",
+          "target_path": "utils.AddTrigger.ModifyTarget",
+          "poisoned_rate": 1,
+          "target": 1,
+          "poisoned_transform_index": 0,
+          "poisoned_target_transform_index": 0
         }
       }
     },
@@ -83,7 +83,7 @@
       "epochs": 5,
       "batch_size": 64,
       "test_size": 0.1,
-      "test_batch_size": 16,
+      "test_batch_size": 64,
       "model": {
         "path": "model.ResNet.ResNet18",
         "params": {}
@@ -94,17 +94,18 @@
         "path": "torch.optim.SGD",
         "params": {
           "lr": 0.01,
-          "weight_decay": 0
+          "weight_decay": 1e-3
         }
       }
     },
     "poison_client": {
-      "path": "client.PoisonClient.PoisonClientConstrainScale",
-      "epochs": 5,
-      "batch_size": 54,
+      "path": "client.PoisonClient.PoisonClientPGD",
+      "epochs": 10,
+      "batch_size": 64,
       "test_size": 0.1,
-      "test_batch_size": 16,
+      "test_batch_size": 64,
       "weight_scale": 2,
+      "projection_norm": 10,
       "model": {
         "path": "model.ResNet.ResNet18",
         "params": {}
@@ -115,7 +116,7 @@
         "path": "torch.optim.SGD",
         "params": {
           "lr": 0.01,
-          "weight_decay": 0
+          "weight_decay": 1e-3
         }
       },
       "trigger":{

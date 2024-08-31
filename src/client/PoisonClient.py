@@ -21,26 +21,28 @@ class PoisonClient(NormalClient):
         self.group_id = 0
         self.trigger_config = config["trigger"]
         self.weight_scale = config["weight_scale"]
+        self.projection_norm = config["projection_norm"] / self.weight_scale
+        
         self.poison_index_list = poison_index_list
         
     def init_client(self):
         config = self.config
         self.train_ds = self.message_queue.get_train_dataset()
-
         self.transform, self.target_transform = self._get_transform(config)
         if len(self.poison_index_list) > 0:
-            self.fl_train_ds = PoisonFLDataset(self.trigger_config, self.train_ds, list(self.index_list),
-                                            self.transform, self.target_transform)
-            sampler = None
-            batch_size = self.batch_size
-            shuffle = False
-        else:
             self.fl_train_ds = SemanticPoisonFLDataset(self.trigger_config, self.train_ds, list(self.index_list), 
                                                        list(self.poison_index_list), self.transform, self.target_transform)
             Sampler = ModuleFindTool.find_class_by_path(self.config["sampler"]["path"])
             sampler = Sampler(self.poison_index_list, self.index_list, self.config["sampler"]["sem_size"], self.batch_size)
             batch_size = None
             shuffle = False
+        else:
+            self.fl_train_ds = PoisonFLDataset(self.trigger_config, self.train_ds, list(self.index_list),
+                                            self.transform, self.target_transform)
+            sampler = None
+            batch_size = self.batch_size
+            shuffle = True
+            
             
 
         self.model = self._get_model(config)
@@ -55,6 +57,31 @@ class PoisonClient(NormalClient):
 
         self.train_dl = DataLoader(self.fl_train_ds, batch_size=batch_size, shuffle=shuffle, sampler=sampler)
         
+        
+    def test_poison(self):
+        self.poison_test_data = self.message_queue.get_poison_test_dataset()
+        self.test_data = self.message_queue.get_test_dataset()
+        trigger_config = copy.copy(self.trigger_config)
+        trigger_config['poisoned_rate'] = 1.
+        if self.poison_test_data is not None:
+            test_ds = SemanticPoisonFLDataset(trigger_config, self.poison_test_data, [], np.arange(len(self.poison_test_data)).tolist())
+        else:
+            test_ds = PoisonFLDataset(trigger_config, self.test_data, np.arange(len(self.test_data)))
+        self.poison_test_dl = DataLoader(test_ds, batch_size=100, shuffle=False, drop_last=False)
+        correct = 0
+        data_sum = 0
+        loss = 0
+        with torch.no_grad():
+            for data, label in self.poison_test_dl:
+                data, label = data.to(self.dev), label.to(self.dev)
+                preds = self.model(data)
+                correct += preds.argmax(1).eq(label).sum()
+                loss += self.loss_func(preds, label).detach().item()
+                data_sum += label.size(0)
+            accuracy = correct / len(test_ds)
+            loss = loss / len(test_ds)
+        print(f"Client {self.client_id}, Poison Test Accuracy: {accuracy}, Poison Test Loss: {loss}")
+        
     
 class PoisonClientConstrainScale(PoisonClient):
     """
@@ -65,6 +92,8 @@ class PoisonClientConstrainScale(PoisonClient):
         global_model = copy.deepcopy(self.model.state_dict())
         
         data_sum, weights = super().train_one_epoch()
+        # self.test_poison()
+        
         for k in weights:
             weights[k] = (weights[k] - global_model[k]) * self.weight_scale + global_model[k]
         torch.cuda.empty_cache()
@@ -76,43 +105,40 @@ class PoisonClientPGD(PoisonClient):
     Implementation of PGD attack.
     """
     def train_one_epoch(self):
-        if self.mu != 0:
-            global_model = copy.deepcopy(self.model)
+        # if self.mu != 0:
+        global_model = copy.deepcopy(self.model)
+        target_params_variables = dict()
+        for name, param in global_model.state_dict().items():
+            target_params_variables[name] = param.clone()
+        
         data_sum = 0
-        l2norm = []
         for epoch in range(self.epoch):
             for data, label in self.train_dl:
+                self.opti.zero_grad()
                 data, label = data.to(self.dev), label.to(self.dev)
                 preds = self.model(data)
                 # Calculate the loss function
                 loss = self.loss_func(preds, label)
                 data_sum += label.size(0)
                 # proximal term
+                proximal_term = self._model_dist_norm(global_model)
                 if self.mu != 0:
-                    proximal_term = 0.0
-                    for w, w_t in zip(self.model.parameters(), global_model.parameters()):
-                        proximal_term += (w - w_t).norm(2)
                     loss = loss + (self.mu / 2) * proximal_term
                 
-                # weights_vector = torch.cat([param.view(-1) for param in self.model.parameters()]).detach()
-                # global_weights_vector = torch.cat([param.view(-1) for param in global_model.parameters()]).detach()
-                # l2_norm = torch.norm(weights_vector-global_weights_vector, p=2)
-                # l2norm.append(l2_norm.item())
-
-                # backpropagate
                 loss.backward()
-                # Update the gradient
                 self.opti.step()  
                 
                 # Weight projection
-                for w in self.model.parameters():
-                    w = w / self.weight_scale
-                
-                # Zero out the gradient and initialize the gradient.
-                self.opti.zero_grad()
+                self._projection(global_model)
         # Return the updated model parameters obtained by training on the client's own data.
         weights = self.model.state_dict()
         for k in weights:
-            weights[k] = (weights[k] - global_model[k]) * self.weight_scale + global_model[k]
+            weights[k] = (weights[k] - target_params_variables[k]) * self.weight_scale + target_params_variables[k]
+        torch.save(weights, 'model.pth')
+        self.test_poison()
         torch.cuda.empty_cache()
         return data_sum, weights
+    
+
+        
+    

@@ -52,6 +52,7 @@ class NormalClient(Client):
         self.optimizer_config = config["optimizer"]
         self.mu = config["mu"]
         self.config = config
+        self.projection_norm  = 10 # default
 
     def run(self):
         """
@@ -83,10 +84,10 @@ class NormalClient(Client):
         The local task of Client, namely, the detailed process of training a model.
         """
         # The client performs training.
-        t0 = time.time()
+        # t0 = time.time()
         data_sum, weights = self.train()
-        t1 = time.time()
-        print("Client", self.client_id, "trained, training time:", t1-t0)
+        # t1 = time.time()
+        # print("Client", self.client_id, "trained, training time:", t1-t0)
         # Information transmitted from the client to the server has latency.
         self.delay_simulate(self.delay)
 
@@ -110,21 +111,24 @@ class NormalClient(Client):
         """
         The training function of Client, used for model training.
         """
-        if self.mu != 0:
-            global_model = copy.deepcopy(self.model)
+        global_model = copy.deepcopy(self.model)
+
         data_sum = 0
+        correct = 0
         for epoch in range(self.epoch):
             for data, label in self.train_dl:
                 data, label = data.to(self.dev), label.to(self.dev)
                 preds = self.model(data)
+                correct += preds.argmax(1).eq(label).sum()
                 # Calculate the loss function
                 loss = self.loss_func(preds, label)
                 data_sum += label.size(0)
                 # proximal term
+                
+                proximal_term = 0.0
+                for w, w_t in zip(self.model.parameters(), global_model.parameters()):
+                    proximal_term += (w - w_t).norm(2)
                 if self.mu != 0:
-                    proximal_term = 0.0
-                    for w, w_t in zip(self.model.parameters(), global_model.parameters()):
-                        proximal_term += (w - w_t).norm(2)
                     loss = loss + (self.mu / 2) * proximal_term
                 # backpropagate
                 loss.backward()
@@ -134,6 +138,9 @@ class NormalClient(Client):
                     self.lr_scheduler.step()
                 # Zero out the gradient and initialize the gradient.
                 self.opti.zero_grad()
+                # Weight projection
+                self._projection(global_model)
+                # print(f"Client {self.client_id}, Norm: {proximal_term}, Acc: {correct/data_sum}")
         # Return the updated model parameters obtained by training on the client's own data.
         weights = self.model.state_dict()
         torch.cuda.empty_cache()
@@ -189,7 +196,6 @@ class NormalClient(Client):
 
         # loss function
         self.loss_func = LossFactory(config["loss"], self).create_loss()
-
         self.train_dl = DataLoader(self.fl_train_ds, batch_size=self.batch_size, shuffle=True, drop_last=True)
 
     def delay_simulate(self, secs):
@@ -225,6 +231,24 @@ class NormalClient(Client):
         else:
             raise ValueError("model config error")
         return model
+    
+    
+    def _model_dist_norm(self, global_model):
+        proximal_term = 0.0
+        for w, w_t in zip(self.model.parameters(), global_model.parameters()):
+            proximal_term += (w - w_t).norm(2)
+        return proximal_term
+    
+    def _projection(self, global_model):
+        model_norm = self._model_dist_norm(global_model)
+        
+        if model_norm > self.projection_norm:
+            norm_scale = self.projection_norm / model_norm
+            for w, w_t in zip(self.model.parameters(), global_model.parameters()):
+                clipped_difference = norm_scale * (w.data - w_t.data)
+                w.data.copy_(w_t.clone() + clipped_difference)
+                
+        return True
 
 
 class NormalClientWithDelta(NormalClient):
@@ -301,3 +325,6 @@ class NormalClientWithGrad(NormalClient):
         # return accumulate gradients.
         torch.cuda.empty_cache()
         return data_sum, accumulated_grads
+    
+    
+
