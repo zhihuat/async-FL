@@ -134,7 +134,7 @@ class PoisonClientPGD(PoisonClient):
         weights = self.model.state_dict()
         for k in weights:
             weights[k] = (weights[k] - target_params_variables[k]) * self.weight_scale + target_params_variables[k]
-        torch.save(weights, 'model.pth')
+        # torch.save(weights, 'model.pth')
         self.test_poison()
         torch.cuda.empty_cache()
         return data_sum, weights

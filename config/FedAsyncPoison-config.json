@@ -23,7 +23,7 @@
     },
     "server": {
       "path": "server.PoisonServer.PoisonServer",
-      "epochs": 300,
+      "epochs": 20,
       "model": {
         "path": "model.ResNet.ResNet18",
         "params": {}

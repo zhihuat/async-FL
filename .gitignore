@@ -2,7 +2,8 @@
 */.DS_Store
 .idea
 src/results/*
-src/data/*
+src/data/cifar*
+src/data/MNIST
 *.pyc
 src/test/*
 src/other
