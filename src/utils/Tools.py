@@ -153,18 +153,25 @@ def _read_data(dataset):
     return data, targets
 
 
-def send_dataset(train_dataset, test_dataset, message_queue, global_config):
+def send_dataset(train_dataset, test_dataset, poison_test_dataset, message_queue, global_config):
     # 预加载
     if 'dataset_pre_load' in global_config and global_config['dataset_pre_load']:
         data, targets = _read_data(train_dataset)
         message_queue.set_train_dataset(CustomDataset(data, targets))
         data, targets = _read_data(test_dataset)
         message_queue.set_test_dataset(CustomDataset(data, targets))
+        if poison_test_dataset is not None:
+            data, targets = _read_data(poison_test_dataset)
+            message_queue.set_poison_test_dataset(CustomDataset(data, targets))
+        else:
+            message_queue.set_poison_test_dataset(None)
     # 静态加载
     else:
         message_queue.set_train_dataset(train_dataset)
         message_queue.set_test_dataset(test_dataset)
-    return train_dataset, test_dataset
+        message_queue.set_poison_test_dataset(poison_test_dataset)
+    return train_dataset, test_dataset, poison_test_dataset
+import argparse
 
 def get_client_num(client_num):
     if isinstance(client_num, dict):

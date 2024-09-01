@@ -16,41 +16,6 @@ from utils.Tools import *
 from utils import ModuleFindTool
 
 
-def _read_data(dataset):
-    data = []
-    targets = []
-    dl = DataLoader(dataset, batch_size=1)
-    for x, y in dl:
-        data.append(x[0])
-        targets.append(y[0])
-    data = torch.stack(data)
-    targets = torch.stack(targets)
-    data.share_memory_()
-    targets.share_memory_()
-    return data, targets
-
-
-def send_dataset(train_dataset, test_dataset, poison_test_dataset, message_queue, global_config):
-    # 预加载
-    if 'dataset_pre_load' in global_config and global_config['dataset_pre_load']:
-        data, targets = _read_data(train_dataset)
-        message_queue.set_train_dataset(CustomDataset(data, targets))
-        data, targets = _read_data(test_dataset)
-        message_queue.set_test_dataset(CustomDataset(data, targets))
-        if poison_test_dataset is not None:
-            data, targets = _read_data(poison_test_dataset)
-            message_queue.set_poison_test_dataset(CustomDataset(data, targets))
-        else:
-            message_queue.set_poison_test_dataset(None)
-    # 静态加载
-    else:
-        message_queue.set_train_dataset(train_dataset)
-        message_queue.set_test_dataset(test_dataset)
-        message_queue.set_poison_test_dataset(poison_test_dataset)
-    return train_dataset, test_dataset, poison_test_dataset
-import argparse
-
-
 def generate_client_stale_list(global_config):
     stale = global_config['stale']
     if isinstance(stale, list):

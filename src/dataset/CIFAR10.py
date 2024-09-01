@@ -69,8 +69,8 @@ class CIFAR10_EdgeCase(BaseDataset):
             poison_test_data = pickle.load(f)  
         num_poison_test = len(poison_test_data)
         
-        poison_train_targets = 2 * np.ones((num_poison_train,), dtype =int) # southwest airplane -> label as bird
-        poison_test_targets = 2 * np.ones((num_poison_test,), dtype =int) # southwest airplane -> label as bird
+        poison_train_targets = 1 * np.ones((num_poison_train,), dtype =int) # southwest airplane -> label as automobile
+        poison_test_targets = 1 * np.ones((num_poison_test,), dtype =int) # southwest airplane -> label as automobile
 
         self.train_dataset.data = np.concatenate((self.train_dataset.data, poison_train_data, poison_test_data), axis=0)
         self.train_dataset.targets = np.concatenate((self.train_dataset.targets, poison_train_targets, poison_test_targets), axis=0)
