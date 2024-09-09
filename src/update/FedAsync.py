@@ -18,7 +18,11 @@ class FedAsync(AbstractUpdate):
         b = self.config["b"]
         a = self.config["a"]
         alpha = self.config["alpha"]
-        # r = self.config["r"]
+
+        r = self.config["r"]
+        temp_stale= self.global_var['updater'].current_time.get_time() - time_stamp + 1
+        alpha = pow(temp_stale, -a)
+        
         # if (self.global_var['updater'].current_time.get_time() - time_stamp) <= b:
         #     s = 1
         # else:

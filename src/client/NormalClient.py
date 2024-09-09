@@ -52,7 +52,7 @@ class NormalClient(Client):
         self.optimizer_config = config["optimizer"]
         self.mu = config["mu"]
         self.config = config
-        self.projection_norm  = 10 # default
+        self.projection_norm  = config["projection_norm"]
 
     def run(self):
         """
