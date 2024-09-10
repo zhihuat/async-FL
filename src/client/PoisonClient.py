@@ -46,7 +46,7 @@ class PoisonClient(NormalClient):
         
         if self.warm_up > 0:
             self.fl_train_ds_clean = FLDataset(self.train_ds, list(self.index_list), self.transform, self.target_transform)
-            self.train_dl_clean = DataLoader(self.fl_train_ds_clean, batch_size=batch_size, shuffle=True)
+            self.train_dl_clean = DataLoader(self.fl_train_ds_clean, batch_size=self.batch_size, shuffle=True)
             
 
         self.model = self._get_model(config)

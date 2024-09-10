@@ -1,3 +1,4 @@
+import torch
 from torchvision import datasets, transforms
 
 from dataset.BaseDataset import BaseDataset
@@ -36,15 +37,15 @@ class MNIST_EdgeCase(BaseDataset):
         
         
         
-        x_train=np.loadtxt('../data/ARDIS/ARDIS_train_2828.csv', dtype='float')
-        x_test=np.loadtxt('.../data/ARDIS/ARDIS_test_2828.csv', dtype='float')
-        y_train=np.loadtxt('../data/ARDIS/ARDIS_train_labels.csv', dtype='float')
-        y_test=np.loadtxt('../data/ARDIS/ARDIS_test_labels.csv', dtype='float')
+        x_train=np.loadtxt('../data/ARDIS/ARDIS_train_2828.csv', dtype='int8')
+        x_test=np.loadtxt('../data/ARDIS/ARDIS_test_2828.csv', dtype='int8')
+        y_train=np.loadtxt('../data/ARDIS/ARDIS_train_labels.csv', dtype='int8')
+        y_test=np.loadtxt('../data/ARDIS/ARDIS_test_labels.csv', dtype='int8')
 
 
         #### reshape to be [samples][pixels][width][height]
-        x_train = x_train.reshape(x_train.shape[0], 1, 28, 28).astype('float32')
-        x_test = x_test.reshape(x_test.shape[0], 1, 28, 28).astype('float32')
+        x_train = torch.from_numpy(x_train).type(torch.uint8).reshape(x_train.shape[0], 28, 28)
+        x_test = torch.from_numpy(x_test).type(torch.uint8).reshape(x_test.shape[0], 28, 28)
         
         poison_train_data = x_train[y_train.argmax(1)==7] # y_train and y_test are stored as one-hot
         poison_test_data = x_test[y_test.argmax(1)==7]
@@ -52,11 +53,11 @@ class MNIST_EdgeCase(BaseDataset):
         num_poison_train = len(poison_train_data)
         num_poison_test = len(poison_test_data)
         
-        poison_train_targets = 1 * np.ones((num_poison_train,), dtype =int) # number 7 -> number 1
-        poison_test_targets = 1 * np.ones((num_poison_test,), dtype =int) # number 7 -> number 1
+        poison_train_targets = 1 * torch.ones((num_poison_train,), dtype =int) # number 7 -> number 1
+        poison_test_targets = 1 * torch.ones((num_poison_test,), dtype =int) # number 7 -> number 1
 
-        self.train_dataset.data = np.concatenate((self.train_dataset.data, poison_train_data, poison_test_data), axis=0)
-        self.train_dataset.targets = np.concatenate((self.train_dataset.targets, poison_train_targets, poison_test_targets), axis=0)
+        self.train_dataset.data = torch.cat((self.train_dataset.data, poison_train_data, poison_test_data), axis=0)
+        self.train_dataset.targets = torch.cat((self.train_dataset.targets, poison_train_targets, poison_test_targets), axis=0)
         
         self.filter_indices = np.arange(num_train, num_train+num_poison_train)
         self.filter_indices_test = np.arange(num_train+num_poison_train, num_train+num_poison_train+num_poison_test)
